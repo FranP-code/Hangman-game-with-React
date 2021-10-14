@@ -1,7 +1,7 @@
 .puzzleWord {
     @include bodyFont();
 
-    font-size: 60pt;
+    font-size: 50pt;
 
     display: flex;
     align-items: center;
@@ -16,7 +16,11 @@
         height: 70pt;
         margin-left: 2vw;
 
-        border-bottom: 3px solid #000;
+        border-bottom: 5px solid #000;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
     }
 
     .counter {

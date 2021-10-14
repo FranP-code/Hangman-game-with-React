@@ -1,14 +1,11 @@
 import React, {useState} from 'react'
+import Register_Input from './Scripts/Register input'
 
-const PuzzleWord = () => {
+const PuzzleWord = ({hangmanFrame, setHangmanFrame}) => {
 
-    const [actualWord, setActualWord] = useState('murcielagos')
-    const [hiddenWord, setHiddenWord] = useState('')
+    const [actualWord, setActualWord] = useState('murcielago')
 
-    console.log(actualWord.length)
-
-    React.useEffect(() => {
-
+    const generatePuzzleWord = () => {
         const puzzleWord = document.getElementById('puzzleWord')
         
         for (let i = 0; i < actualWord.length; i++) {
@@ -26,12 +23,27 @@ const PuzzleWord = () => {
         counter.textContent = '(' + actualWord.length + ')'
 
         puzzleWord.appendChild(counter)
+    }
 
+    React.useEffect(() => {
+        
+        generatePuzzleWord()
+        
     }, [])
 
+
+
+    React.useEffect(() => {
+
+        
+        Register_Input(actualWord, hangmanFrame, setHangmanFrame)
+        
+    }, [hangmanFrame])
+    
+    
     return (
         <div className="puzzleWord" id="puzzleWord">
-            {hiddenWord}
+        
         </div>
         
     )

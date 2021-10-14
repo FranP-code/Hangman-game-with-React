@@ -9,6 +9,8 @@ function App() {
   const [language, setLanguage] = useState('english')
   const [currentScore, setCurrentScore] = useState(0)
 
+  const [hangmanFrame, setHangmanFrame] = useState(0)
+
   return (
    <>
     <Header language={language}/>
@@ -16,12 +18,18 @@ function App() {
     <div className="app">
 
       <div className='column-1'>
-        <Hangman />
+        <Hangman
+          hangmanFrame={hangmanFrame}
+        />
       </div>
       
       <div className='column-2'>
         <CurrentScore currentScore={currentScore} />
-        <PuzzleWord />
+        <PuzzleWord
+
+          hangmanFrame={hangmanFrame}
+          setHangmanFrame={setHangmanFrame}
+        />
 
       </div>
 
