@@ -1,12 +1,16 @@
-const Register_Input = (actualWord, hangmanFrame, setHangmanFrame) => {
+import CheckVictory from "./CheckVictory.jsx";
+
+const Register_Input = (actualWord, hangmanFrame, setHangmanFrame, setIsVictory, setIsDefeat) => {
 
     const alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n", "ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
 
     const keyRegister = (event) => {
         
         const currentKey = event.key.toLowerCase()
+        
+        console.log(hangmanFrame)
 
-        if (hangmanFrame < 6 && alphabet.includes(currentKey) ) {
+        if (hangmanFrame <= 5 && alphabet.includes(currentKey) ) {
 
             actualWord = actualWord.toLowerCase()
             
@@ -41,16 +45,25 @@ const Register_Input = (actualWord, hangmanFrame, setHangmanFrame) => {
 
                 });
 
+                CheckVictory(setIsVictory)
+
                 
             } else {
                 
                 const quantity = hangmanFrame + 1
                 setHangmanFrame(quantity)
 
+                if (hangmanFrame === 5) {
+                    setIsDefeat(true)
+        
+                }
+
                 removeRegisterInput()
             }
 
         }
+        
+        
     }
 
     const removeRegisterInput = () => {

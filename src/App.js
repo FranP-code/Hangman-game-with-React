@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import CurrentScore from "./components/CurrentScore";
 import Hangman from "./components/Hangman/Hangman";
 import Header from "./components/Header";
-import PuzzleWord from "./components/PuzzleWord";
+import PuzzleWord from "./components/Hangman/PuzzleWord/PuzzleWord";
 
 function App() {
 

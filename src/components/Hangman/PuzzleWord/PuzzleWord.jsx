@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
-import Register_Input from './Scripts/Register input'
+import Register_Input from '../../Scripts/Register input'
+import Defeat from './Defeat'
+import Victory from './Victory'
 
 const PuzzleWord = ({hangmanFrame, setHangmanFrame}) => {
 
     const [actualWord, setActualWord] = useState('murcielago')
+    const [isVictory, setIsVictory] = useState(false)
+    const [isDefeat, setIsDefeat] = useState(false)
 
     const generatePuzzleWord = () => {
         const puzzleWord = document.getElementById('puzzleWord')
@@ -35,17 +39,17 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame}) => {
 
     React.useEffect(() => {
 
-        
-        Register_Input(actualWord, hangmanFrame, setHangmanFrame)
+        Register_Input(actualWord, hangmanFrame, setHangmanFrame, setIsVictory, setIsDefeat)
         
     }, [hangmanFrame])
     
-    
     return (
-        <div className="puzzleWord" id="puzzleWord">
+        <>
+            <div className="puzzleWord" id="puzzleWord"></div>
         
-        </div>
-        
+            {isVictory ? <Victory /> : null}
+            {isDefeat ? <Defeat /> : null}
+        </>
     )
 }
 
