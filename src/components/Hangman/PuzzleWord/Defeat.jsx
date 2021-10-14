@@ -1,6 +1,6 @@
 const Defeat = () => {
     return (
-        <div>
+        <div className="defeat animate__animated animate__backInDown">
             <h1>DEFEAT</h1>
         </div>
     )

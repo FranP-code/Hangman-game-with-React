@@ -82,4 +82,30 @@ header h2 {
   user-select: none;
 }
 
+.defeat, .victory {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80pt;
+  background-color: rgba(0, 0, 0, 0.775);
+  user-select: none;
+}
+.defeat h1, .victory h1 {
+  padding: 5%;
+  background-color: rgba(0, 0, 0, 0.775);
+}
+
+.defeat {
+  color: #ff6363;
+}
+
+.victory {
+  color: #58ff6b;
+}
+
 /*# sourceMappingURL=index.css.map */

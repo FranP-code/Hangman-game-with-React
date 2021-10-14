@@ -29,6 +29,9 @@ function App() {
 
           hangmanFrame={hangmanFrame}
           setHangmanFrame={setHangmanFrame}
+
+          currentScore={currentScore}
+          setCurrentScore={setCurrentScore}
         />
 
       </div>

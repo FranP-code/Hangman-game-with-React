@@ -3,9 +3,9 @@ import Register_Input from '../../Scripts/Register input'
 import Defeat from './Defeat'
 import Victory from './Victory'
 
-const PuzzleWord = ({hangmanFrame, setHangmanFrame}) => {
+const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore}) => {
 
-    const [actualWord, setActualWord] = useState('murcielago')
+    const [actualWord, setActualWord] = useState('papa')
     const [isVictory, setIsVictory] = useState(false)
     const [isDefeat, setIsDefeat] = useState(false)
 
@@ -47,7 +47,7 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame}) => {
         <>
             <div className="puzzleWord" id="puzzleWord"></div>
         
-            {isVictory ? <Victory /> : null}
+            {isVictory ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}
             {isDefeat ? <Defeat /> : null}
         </>
     )
