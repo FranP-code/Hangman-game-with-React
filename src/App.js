@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import PuzzleWord from "./components/Hangman/PuzzleWord/PuzzleWord";
 import Victory from "./components/Hangman/PuzzleWord/Victory";
 import Defeat from "./components/Hangman/PuzzleWord/Defeat";
+import Loading from "./components/Loading";
 
 function App() {
 
@@ -16,18 +17,13 @@ function App() {
   const [isVictory, setIsVictory] = useState(false)
   const [isDefeat, setIsDefeat] = useState(false)
 
-  const [keyPuzzleWord, setKeyPuzzleWord] = useState(1)
+  const [displayApp, setDisplayApp] = useState(false)
 
   if (isVictory || isDefeat) {
     
     
     setTimeout(() => {
-        setHangmanFrame(0)
-
-        setIsVictory(false)
-        setIsDefeat(false)
-
-        setKeyPuzzleWord(keyPuzzleWord + 1)
+        window.location.reload(true);
         }, 3000)
   }
 
@@ -40,17 +36,17 @@ function App() {
       <div className='column-1'>
         <Hangman
           hangmanFrame={hangmanFrame}
-        />
+          />
       </div>
       
       <div className='column-2'>
+
+
         <CurrentScore currentScore={currentScore} />
 
-        { isVictory || isDefeat ? null :
+          {!displayApp ? <Loading /> : null }
 
           <PuzzleWord
-
-          key={keyPuzzleWord}
 
           hangmanFrame={hangmanFrame}
           setHangmanFrame={setHangmanFrame}
@@ -63,10 +59,9 @@ function App() {
 
           isDefeat={isDefeat}
           setIsDefeat={setIsDefeat}
-          />
 
-        }
-        
+          setDisplayApp={setDisplayApp}
+          />
 
         {isVictory ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}
         {isDefeat ? <Defeat /> : null}

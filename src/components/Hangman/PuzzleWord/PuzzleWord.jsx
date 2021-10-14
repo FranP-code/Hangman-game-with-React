@@ -3,10 +3,9 @@ import Register_Input from '../../Scripts/Register input'
 import Defeat from './Defeat'
 import Victory from './Victory'
 
-const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore, setIsVictory, setIsDefeat}) => {
+const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore, setIsVictory, setIsDefeat, setDisplayApp}) => {
 
     const [actualWord, setActualWord] = useState('papa')
-
 
     const generatePuzzleWord = () => {  
             
@@ -27,12 +26,12 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScor
         counter.textContent = '(' + actualWord.length + ')'
     
         puzzleWord.appendChild(counter)
-        
-    }
+            }
 
     React.useEffect(() => {
         
         generatePuzzleWord()
+        setDisplayApp(true)
         
     }, [])
 
