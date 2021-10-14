@@ -1,4 +1,4 @@
-import CheckVictory from "./CheckVictory.jsx";
+import CheckVictory from "./CheckVictory";
 
 const Register_Input = (actualWord, hangmanFrame, setHangmanFrame, setIsVictory, setIsDefeat) => {
 
@@ -46,7 +46,6 @@ const Register_Input = (actualWord, hangmanFrame, setHangmanFrame, setIsVictory,
                 });
 
                 CheckVictory(setIsVictory)
-
                 
             } else {
                 
@@ -61,9 +60,7 @@ const Register_Input = (actualWord, hangmanFrame, setHangmanFrame, setIsVictory,
                 removeRegisterInput()
             }
 
-        }
-        
-        
+        }        
     }
 
     const removeRegisterInput = () => {

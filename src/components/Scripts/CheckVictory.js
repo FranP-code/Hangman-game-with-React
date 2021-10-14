@@ -19,6 +19,7 @@ const CheckVictory = (setIsVictory) => {
     if (allChildrenHaveText) {
 
         setIsVictory(true)
+        
     }
 }
 

@@ -3,30 +3,31 @@ import Register_Input from '../../Scripts/Register input'
 import Defeat from './Defeat'
 import Victory from './Victory'
 
-const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore}) => {
+const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore, setIsVictory, setIsDefeat}) => {
 
     const [actualWord, setActualWord] = useState('papa')
-    const [isVictory, setIsVictory] = useState(false)
-    const [isDefeat, setIsDefeat] = useState(false)
 
-    const generatePuzzleWord = () => {
+
+    const generatePuzzleWord = () => {  
+            
         const puzzleWord = document.getElementById('puzzleWord')
         
         for (let i = 0; i < actualWord.length; i++) {
-
+            
             let letter = document.createElement('span')
             
             letter.className = 'letter'
             letter.textContent = ''
-
+            
             puzzleWord.appendChild(letter)
         }
-
+    
         const counter = document.createElement('span')
         counter.className = 'counter'
         counter.textContent = '(' + actualWord.length + ')'
-
+    
         puzzleWord.appendChild(counter)
+        
     }
 
     React.useEffect(() => {
@@ -42,13 +43,12 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScor
         Register_Input(actualWord, hangmanFrame, setHangmanFrame, setIsVictory, setIsDefeat)
         
     }, [hangmanFrame])
+
+   
     
     return (
         <>
             <div className="puzzleWord" id="puzzleWord"></div>
-        
-            {isVictory ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}
-            {isDefeat ? <Defeat /> : null}
         </>
     )
 }
