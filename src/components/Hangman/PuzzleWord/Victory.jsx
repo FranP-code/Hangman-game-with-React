@@ -4,7 +4,8 @@ const Victory = ({currentScore, setCurrentScore}) => {
 
     React.useEffect(() => {
 
-        setCurrentScore(currentScore + 1)
+        setCurrentScore(parseInt(currentScore) + 1)
+        
     }, [])
 
     return (

@@ -6,6 +6,7 @@ import PuzzleWord from "./components/Hangman/PuzzleWord/PuzzleWord";
 import Victory from "./components/Hangman/PuzzleWord/Victory";
 import Defeat from "./components/Hangman/PuzzleWord/Defeat";
 import Loading from "./components/Loading";
+import AlmacenateCurrentScore from "./components/Scripts/AlmacenateCurrentScore";
 
 function App() {
 
@@ -19,10 +20,22 @@ function App() {
 
   const [displayApp, setDisplayApp] = useState(false)
 
+  React.useEffect(() => {
+
+    if (localStorage.getItem('currentScore')) {
+      
+      setCurrentScore(localStorage.getItem('currentScore'))
+      localStorage.removeItem('currentScore')
+    }
+
+  })
+
   if (isVictory || isDefeat) {
     
     
     setTimeout(() => {
+        AlmacenateCurrentScore(currentScore)
+
         window.location.reload(true);
         }, 3000)
   }
