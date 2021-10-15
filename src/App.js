@@ -48,7 +48,7 @@ function App() {
       document.title = titleAPP.spanish
     }
 
-  })
+  }, [])
 
   if (isVictory || isDefeat) {
     
