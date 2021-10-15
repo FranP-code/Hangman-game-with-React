@@ -3,27 +3,27 @@ import React, {useState} from 'react'
 const Header = (props) => {
 
     const [title, setTitle] = useState('')
-    const [categoryName, setCategoryName] = useState('')
+    const [categoryText, setCategoryText] = useState('')
 
     React.useEffect( () => {
 
         if (props.language === 'english') {
             
             setTitle('Hangman game')
-            setCategoryName('Select category')
+            setCategoryText('Select category')
         }
 
         if (props.language === 'spanish') {
 
             setTitle('Ahorcado')
-            setCategoryName('Select category')
+            setCategoryText('Seleccionar categoría')
         }
     })
 
     return (
         <header>
             <h1>{title}</h1>
-            <h2>{categoryName}</h2>
+            <h2>{categoryText}</h2>
         </header>
     )
 }

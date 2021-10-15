@@ -7,10 +7,11 @@ import Victory from "./components/Hangman/PuzzleWord/Victory";
 import Defeat from "./components/Hangman/PuzzleWord/Defeat";
 import Loading from "./components/Loading";
 import AlmacenateCurrentScore from "./components/Scripts/AlmacenateCurrentScore";
+import DetermineUserLanguage from "./components/Scripts/DetermineUserLanguage";
 
 function App() {
 
-  const [language, setLanguage] = useState('spanish')
+  const [language, setLanguage] = useState('')
   const [category, setCategory] = useState(false)
 
   const [currentScore, setCurrentScore] = useState(0)
@@ -24,10 +25,27 @@ function App() {
 
   React.useEffect(() => {
 
+    DetermineUserLanguage(setLanguage)
+
     if (localStorage.getItem('currentScore')) {
       
       setCurrentScore(localStorage.getItem('currentScore'))
       localStorage.removeItem('currentScore')
+    }
+
+    const titleAPP = {
+      english: 'Hangman game',
+      spanish: 'Ahorcado'
+    }
+
+    if (language === 'english') {
+
+      document.title = titleAPP.english
+    }
+
+    if (language === 'spanish') {
+
+      document.title = titleAPP.spanish
     }
 
   })
@@ -41,6 +59,8 @@ function App() {
         window.location.reload(false);
         }, 3000)
   }
+
+  
 
   return (
    <>
@@ -57,7 +77,12 @@ function App() {
       <div className='column-2'>
 
 
-        <CurrentScore currentScore={currentScore} />
+        <CurrentScore
+
+          currentScore={currentScore}
+
+          language={language}
+        />
 
           {!displayApp ? <Loading /> : null }
 
