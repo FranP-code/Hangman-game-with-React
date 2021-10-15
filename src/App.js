@@ -8,6 +8,7 @@ import Defeat from "./components/Hangman/PuzzleWord/Defeat";
 import Loading from "./components/Loading";
 import AlmacenateCurrentScore from "./components/Scripts/AlmacenateCurrentScore";
 import DetermineUserLanguage from "./components/Scripts/DetermineUserLanguage";
+import Categories from "./components/Categories/Categories";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
   const [isDefeat, setIsDefeat] = useState(false)
 
   const [displayApp, setDisplayApp] = useState(false)
+  const [displayCategories, setDisplayCategories] = useState(false)
 
   React.useEffect(() => {
 
@@ -60,11 +62,14 @@ function App() {
         }, 3000)
   }
 
-  
-
   return (
    <>
-    <Header language={language}/>
+    <Header
+      language={language}
+
+      displayCategories={displayCategories}
+      setDisplayCategories={setDisplayCategories}
+    />
     
     <div className="app">
 
@@ -85,6 +90,12 @@ function App() {
         />
 
           {!displayApp ? <Loading /> : null }
+
+          {displayCategories ?
+            <Categories hidden={false}/>
+              :
+            <Categories hidden={true}/>
+          }
 
           <PuzzleWord
 

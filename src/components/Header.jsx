@@ -1,19 +1,19 @@
 import React, {useState} from 'react'
 
-const Header = (props) => {
+const Header = ({language, displayCategories, setDisplayCategories}) => {
 
     const [title, setTitle] = useState('')
     const [categoryText, setCategoryText] = useState('')
 
     React.useEffect( () => {
 
-        if (props.language === 'english') {
+        if (language === 'english') {
             
             setTitle('Hangman game')
             setCategoryText('Select category')
         }
 
-        if (props.language === 'spanish') {
+        if (language === 'spanish') {
 
             setTitle('Ahorcado')
             setCategoryText('Seleccionar categoría')
@@ -23,7 +23,11 @@ const Header = (props) => {
     return (
         <header>
             <h1>{title}</h1>
-            <h2>{categoryText}</h2>
+            <h2
+                onClick={() => setDisplayCategories(!displayCategories)}
+            >
+                {categoryText}
+            </h2>
         </header>
     )
 }
