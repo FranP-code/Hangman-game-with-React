@@ -14,8 +14,6 @@ const CheckVictory = (setIsVictory) => {
         }
     });
 
-    console.log(allChildrenHaveText)
-
     if (allChildrenHaveText) {
 
         setIsVictory(true)

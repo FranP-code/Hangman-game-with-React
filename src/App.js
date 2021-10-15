@@ -10,7 +10,9 @@ import AlmacenateCurrentScore from "./components/Scripts/AlmacenateCurrentScore"
 
 function App() {
 
-  const [language, setLanguage] = useState('english')
+  const [language, setLanguage] = useState('spanish')
+  const [category, setCategory] = useState(false)
+
   const [currentScore, setCurrentScore] = useState(0)
 
   const [hangmanFrame, setHangmanFrame] = useState(0)
@@ -36,7 +38,7 @@ function App() {
     setTimeout(() => {
         AlmacenateCurrentScore(currentScore)
 
-        window.location.reload(true);
+        window.location.reload(false);
         }, 3000)
   }
 
@@ -61,6 +63,10 @@ function App() {
 
           <PuzzleWord
 
+          language={language}
+
+          category={category}
+
           hangmanFrame={hangmanFrame}
           setHangmanFrame={setHangmanFrame}
 
@@ -73,6 +79,7 @@ function App() {
           isDefeat={isDefeat}
           setIsDefeat={setIsDefeat}
 
+          displayApp={displayApp}
           setDisplayApp={setDisplayApp}
           />
 

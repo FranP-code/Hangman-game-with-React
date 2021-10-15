@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import Register_Input from '../../Scripts/Register input'
+import SelectRandomWord from '../../Scripts/SelectRandomWord'
 import Defeat from './Defeat'
+import BringTheWords from './Firebase Querys/BringTheWords'
 import Victory from './Victory'
 
-const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore, setIsVictory, setIsDefeat, setDisplayApp}) => {
+const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore, setIsVictory, setIsDefeat, displayApp, setDisplayApp, language, category}) => {
 
-    const [actualWord, setActualWord] = useState('papa')
+    const [actualWord, setActualWord] = useState('')
 
     const generatePuzzleWord = () => {  
             
@@ -26,23 +28,47 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScor
         counter.textContent = '(' + actualWord.length + ')'
     
         puzzleWord.appendChild(counter)
-            }
+    }
+
+    
+    React.useEffect(() => {
+        const definePuzzle = async () => {
+        
+            const words = await BringTheWords(language, category)
+            const wordSelection = await SelectRandomWord(words)
+            
+            const word = await words[wordSelection]
+    
+            await setActualWord(word)
+
+        }
+        if (!displayApp && !actualWord) {
+
+            definePuzzle()
+        }
+
+        
+        if (actualWord && !displayApp) {
+
+            generatePuzzleWord()
+            setDisplayApp(true)
+    
+        }
+        
+    }, [actualWord])
+
 
     React.useEffect(() => {
-        
-        generatePuzzleWord()
-        setDisplayApp(true)
-        
-    }, [])
+
+        if (displayApp) {
+
+            Register_Input(actualWord, hangmanFrame, setHangmanFrame, setIsVictory, setIsDefeat)
+        }
 
 
-
-    React.useEffect(() => {
-
-        Register_Input(actualWord, hangmanFrame, setHangmanFrame, setIsVictory, setIsDefeat)
-        
-    }, [hangmanFrame])
-
+    }, [hangmanFrame, displayApp])
+    
+    
    
     
     return (
