@@ -73,6 +73,10 @@ function App() {
     
     <div className="app">
 
+      <div className='categories-container'>
+          <Categories displayCategories={displayCategories} language={language}/>
+      </div>
+
       <div className='column-1'>
         <Hangman
           hangmanFrame={hangmanFrame}
@@ -91,11 +95,7 @@ function App() {
 
           {!displayApp ? <Loading /> : null }
 
-          {displayCategories ?
-            <Categories hidden={false}/>
-              :
-            <Categories hidden={true}/>
-          }
+          
 
           <PuzzleWord
 

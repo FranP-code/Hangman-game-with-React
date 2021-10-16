@@ -1,10 +1,11 @@
 import { firestore } from "../../../Firebase/Firebase_Config"
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import AdjustHeightCategories from "../../Scripts/AdjustHeightCategories";
+import capitalize from "../../Scripts/Capilazate";
 
-const Bring_All_Categories = async (setCategories) => {
 
-    const capitalize = (str, lower = false) =>
-        (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());  /* CREDITS: https://stackoverflow.com/a/7592235*/
+const Bring_All_Categories = async (setCategories, setStrech, language) => {
+
     
     try {
 
@@ -13,11 +14,23 @@ const Bring_All_Categories = async (setCategories) => {
         const result = await getDocs(data)
 
         let categories = await result.docs.map(doc => doc.id)
+
+            if (language === 'english') {
+                categories = result.docs.map(doc => doc.english)
+
+            }
+
+            if (language === 'spanish') {
+                categories = result.docs.map(doc => doc.english)
+
+            }
         
             categories = categories.map(word => capitalize(word, true))
 
         console.log(categories)
         setCategories(await categories)
+
+        AdjustHeightCategories(await categories, setStrech)
         
     } catch (error) {
         console.log(error)

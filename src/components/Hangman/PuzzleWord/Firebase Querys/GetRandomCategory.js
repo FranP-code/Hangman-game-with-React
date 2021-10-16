@@ -12,7 +12,7 @@ const GetRandomCategory = async () => {
             const data = collection(db, `categories`)
             const result = await getDocs(data)
 
-            result.docs.map(doc => categoriesList.push(doc.id))
+            result.docs.map(doc => categoriesList.push(doc.id.toLowerCase()))
 
             const randomNumber = Math.trunc(
 

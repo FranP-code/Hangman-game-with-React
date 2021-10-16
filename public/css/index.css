@@ -82,6 +82,121 @@ header h2 {
   user-select: none;
 }
 
+.categories-container {
+  overflow-y: hidden;
+}
+.categories-container .categories {
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  height: 85vh;
+  width: 100vw;
+  background-color: #e1e1e1;
+  transition: opacity 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.categories-container .categories button, .categories-container .categories select {
+  height: 10vh;
+  width: 50vw;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22pt;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
+}
+.categories-container .categories button.Select, .categories-container .categories select.Select {
+  background-color: #E96363;
+  border: #e16363 solid 2px;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Select:hover, .categories-container .categories select.Select:hover {
+  background-color: #ef9090;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Cities, .categories-container .categories select.Cities {
+  background-color: #5f9ea0;
+  border: #5f9798 solid 2px;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Cities:hover, .categories-container .categories select.Cities:hover {
+  background-color: #7fb1b3;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Pokemons, .categories-container .categories select.Pokemons {
+  background-color: #ffcb05;
+  border: #f7c505 solid 2px;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Pokemons:hover, .categories-container .categories select.Pokemons:hover {
+  background-color: #ffd638;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Programming.Languages, .categories-container .categories select.Programming.Languages {
+  background-color: #e46f01;
+  border: #dc6b01 solid 2px;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Programming.Languages:hover, .categories-container .categories select.Programming.Languages:hover {
+  background-color: #fe881a;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Animals, .categories-container .categories select.Animals {
+  background-color: #efa482;
+  border: #e7a282 solid 2px;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Animals:hover, .categories-container .categories select.Animals:hover {
+  background-color: #f5c5af;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Countries, .categories-container .categories select.Countries {
+  background-color: #9f0000;
+  border: #970000 solid 2px;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Countries:hover, .categories-container .categories select.Countries:hover {
+  background-color: #d20000;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Random, .categories-container .categories select.Random {
+  background-color: #4285f4;
+  border: #4282ec solid 2px;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Random:hover, .categories-container .categories select.Random:hover {
+  background-color: #72a4f7;
+  transition: 0.4s ease-in-out;
+}
+.categories-container .categories.hidden {
+  opacity: 0%;
+  top: 0;
+  height: 85vh;
+}
+.categories-container .categories.hidden button, .categories-container .categories.hidden select {
+  height: 5vh;
+}
+.categories-container .categories.show {
+  opacity: 100%;
+}
+.categories-container .categories.stretch {
+  height: auto;
+  width: 100%;
+}
+.categories-container .categories.stretch button, .categories-container .categories.stretch select {
+  margin-bottom: 5vh;
+}
+.categories-container .categories.stretch:last-child {
+  margin-bottom: 0vh !important;
+}
+
 .defeat, .victory {
   position: absolute;
   left: 0;
