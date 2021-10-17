@@ -4,6 +4,8 @@ import GetRandomCategory from './GetRandomCategory';
 
 const BringTheWords = async (language = false, category = false) => {
 
+    console.log(category)
+
     if (!language) {
 
         language = 'english'

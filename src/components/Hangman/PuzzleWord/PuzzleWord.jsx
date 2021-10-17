@@ -3,7 +3,7 @@ import Register_Input from '../../Scripts/Register input'
 import SelectRandomWord from '../../Scripts/SelectRandomWord'
 import BringTheWords from './Firebase Querys/BringTheWords'
 
-const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore, setIsVictory, setIsDefeat, displayApp, setDisplayApp, language, category}) => {
+const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScore, setIsVictory, setIsDefeat, displayApp, setDisplayApp, language, category, categoryIsReady}) => {
 
     const [actualWord, setActualWord] = useState('')
 
@@ -57,7 +57,10 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScor
         
         if (!displayApp && !actualWord) {
 
-            definePuzzle()
+            if ( categoryIsReady) {
+                
+                definePuzzle()
+            }
         }
 
 
@@ -67,7 +70,7 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScor
         }
 
 
-    }, [hangmanFrame, displayApp, actualWord, setHangmanFrame, setIsDefeat, setIsVictory])
+    }, [hangmanFrame, displayApp, actualWord, setHangmanFrame, setIsDefeat, setIsVictory, categoryIsReady, category])
     
     
    

@@ -9,11 +9,20 @@ import Loading from "./components/Loading";
 import AlmacenateCurrentScore from "./components/Scripts/AlmacenateCurrentScore";
 import DetermineUserLanguage from "./components/Scripts/DetermineUserLanguage";
 import Categories from "./components/Categories/Categories";
+import ChangeTitle from "./components/Scripts/ChangeTitle";
+import AlmacenateCategory from "./components/Scripts/AlmacenateCategory";
+import { RecoveryCurrentScore } from "./components/Scripts/RecoveryCurrentScore";
+import { RecoveryCurrentCategory } from "./components/Scripts/RecoveryCurrentCategory";
+import { RecoveryCurrentLanguage } from "./components/Scripts/RecoveryCurrentLanguage";
+import { AlmacenateLanguage } from "./components/Scripts/AlmacenateLanguage";
 
 function App() {
 
-  const [language, setLanguage] = useState('')
+  const [language, setLanguage] = useState('english')
+  const [languageIsReady, setLanguageIsReady] = useState(false)
+
   const [category, setCategory] = useState(false)
+  const [categoryIsReady, setcategoryIsReady] = useState(false)
 
   const [currentScore, setCurrentScore] = useState(0)
 
@@ -26,30 +35,17 @@ function App() {
   const [displayCategories, setDisplayCategories] = useState(false)
 
   React.useEffect(() => {
+    
+    RecoveryCurrentScore(setCurrentScore)
+    
+    //DetermineUserLanguage(setLanguage)
+    //ChangeTitle(language)
 
-    DetermineUserLanguage(setLanguage)
+    RecoveryCurrentCategory(setCategory)
+    setcategoryIsReady(true)
 
-    if (localStorage.getItem('currentScore')) {
-      
-      setCurrentScore(localStorage.getItem('currentScore'))
-      localStorage.removeItem('currentScore')
-    }
-
-    const titleAPP = {
-      english: 'Hangman game',
-      spanish: 'Ahorcado'
-    }
-
-    if (language === 'english') {
-
-      document.title = titleAPP.english
-    }
-
-    if (language === 'spanish') {
-
-      document.title = titleAPP.spanish
-    }
-
+    RecoveryCurrentLanguage(setLanguage)
+    setLanguageIsReady(true)
   }, [])
 
   if (isVictory || isDefeat) {
@@ -57,8 +53,10 @@ function App() {
     
     setTimeout(() => {
         AlmacenateCurrentScore(currentScore)
+        AlmacenateCategory(category)
+        AlmacenateLanguage(language)
 
-        window.location.reload(false);
+        window.location.reload(false)
         }, 3000)
   }
 
@@ -72,10 +70,16 @@ function App() {
     />
     
     <div className="app">
-
-      <div className='categories-container'>
-          <Categories displayCategories={displayCategories} language={language}/>
+      
+      {
+        languageIsReady ?
+        
+        <div className='categories-container'>
+          <Categories currentScore={currentScore} displayCategories={displayCategories} language={language} category={category} setCategory={setCategory} categoryIsReady={categoryIsReady} setLanguage={setLanguage}/>
       </div>
+
+      :null
+      }
 
       <div className='column-1'>
         <Hangman
@@ -102,6 +106,7 @@ function App() {
           language={language}
 
           category={category}
+          categoryIsReady={categoryIsReady}
 
           hangmanFrame={hangmanFrame}
           setHangmanFrame={setHangmanFrame}
