@@ -40,6 +40,15 @@
             text-align-last: center;
             -moz-text-align-last: center;
 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img, .blank-space {
+                height: 4vw;
+                width: 4vw;
+            }
+
             @mixin backgroundAndHoverDefiner($buttonColor, $textColor: #000) {
 
                 color: $textColor;
@@ -55,6 +64,10 @@
                     background-color: adjust-color($color: $buttonColor, $lightness: 10%, );
                     transition: 0.4s ease-in-out;
                     
+                    & img {
+                        animation: bounce;
+                        animation-duration: 0.5s;
+                    }
                 }
 
             }
@@ -79,8 +92,9 @@
 
             &.Programming.Languages, &.Lenguajes.De.Programación {
                 $buttonColor: #e46f01;
+                $textColor: #fff;
 
-                @include backgroundAndHoverDefiner($buttonColor);
+                @include backgroundAndHoverDefiner($buttonColor, $textColor);
             }
 
             &.Animals, &.Animales {

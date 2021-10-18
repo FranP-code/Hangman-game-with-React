@@ -112,6 +112,13 @@ header h2 {
   text-align: center;
   text-align-last: center;
   -moz-text-align-last: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.categories-container .categories button img, .categories-container .categories button .blank-space, .categories-container .categories select img, .categories-container .categories select .blank-space {
+  height: 4vw;
+  width: 4vw;
 }
 .categories-container .categories button.Select, .categories-container .categories select.Select {
   color: #000;
@@ -124,6 +131,10 @@ header h2 {
   background-color: #ef9090;
   transition: 0.4s ease-in-out;
 }
+.categories-container .categories button.Select:hover img, .categories-container .categories select.Select:hover img {
+  animation: bounce;
+  animation-duration: 0.5s;
+}
 .categories-container .categories button.Cities, .categories-container .categories button.Ciudades, .categories-container .categories select.Cities, .categories-container .categories select.Ciudades {
   color: #000;
   background-color: #5f9ea0;
@@ -134,6 +145,10 @@ header h2 {
 .categories-container .categories button.Cities:hover, .categories-container .categories button.Ciudades:hover, .categories-container .categories select.Cities:hover, .categories-container .categories select.Ciudades:hover {
   background-color: #7fb1b3;
   transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Cities:hover img, .categories-container .categories button.Ciudades:hover img, .categories-container .categories select.Cities:hover img, .categories-container .categories select.Ciudades:hover img {
+  animation: bounce;
+  animation-duration: 0.5s;
 }
 .categories-container .categories button.Pokemon, .categories-container .categories select.Pokemon {
   color: #000;
@@ -146,8 +161,12 @@ header h2 {
   background-color: #ffd638;
   transition: 0.4s ease-in-out;
 }
+.categories-container .categories button.Pokemon:hover img, .categories-container .categories select.Pokemon:hover img {
+  animation: bounce;
+  animation-duration: 0.5s;
+}
 .categories-container .categories button.Programming.Languages, .categories-container .categories button.Lenguajes.De.Programación, .categories-container .categories select.Programming.Languages, .categories-container .categories select.Lenguajes.De.Programación {
-  color: #000;
+  color: #fff;
   background-color: #e46f01;
   border: #dc6b01 solid 2px;
   cursor: pointer;
@@ -156,6 +175,10 @@ header h2 {
 .categories-container .categories button.Programming.Languages:hover, .categories-container .categories button.Lenguajes.De.Programación:hover, .categories-container .categories select.Programming.Languages:hover, .categories-container .categories select.Lenguajes.De.Programación:hover {
   background-color: #fe881a;
   transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Programming.Languages:hover img, .categories-container .categories button.Lenguajes.De.Programación:hover img, .categories-container .categories select.Programming.Languages:hover img, .categories-container .categories select.Lenguajes.De.Programación:hover img {
+  animation: bounce;
+  animation-duration: 0.5s;
 }
 .categories-container .categories button.Animals, .categories-container .categories button.Animales, .categories-container .categories select.Animals, .categories-container .categories select.Animales {
   color: #000;
@@ -168,6 +191,10 @@ header h2 {
   background-color: #f5c5af;
   transition: 0.4s ease-in-out;
 }
+.categories-container .categories button.Animals:hover img, .categories-container .categories button.Animales:hover img, .categories-container .categories select.Animals:hover img, .categories-container .categories select.Animales:hover img {
+  animation: bounce;
+  animation-duration: 0.5s;
+}
 .categories-container .categories button.Countries, .categories-container .categories button.Países, .categories-container .categories select.Countries, .categories-container .categories select.Países {
   color: #fff;
   background-color: #9f0000;
@@ -179,6 +206,10 @@ header h2 {
   background-color: #d20000;
   transition: 0.4s ease-in-out;
 }
+.categories-container .categories button.Countries:hover img, .categories-container .categories button.Países:hover img, .categories-container .categories select.Countries:hover img, .categories-container .categories select.Países:hover img {
+  animation: bounce;
+  animation-duration: 0.5s;
+}
 .categories-container .categories button.Random, .categories-container .categories select.Random {
   color: #000;
   background-color: #4285f4;
@@ -189,6 +220,10 @@ header h2 {
 .categories-container .categories button.Random:hover, .categories-container .categories select.Random:hover {
   background-color: #72a4f7;
   transition: 0.4s ease-in-out;
+}
+.categories-container .categories button.Random:hover img, .categories-container .categories select.Random:hover img {
+  animation: bounce;
+  animation-duration: 0.5s;
 }
 .categories-container .categories.hidden {
   opacity: 0%;

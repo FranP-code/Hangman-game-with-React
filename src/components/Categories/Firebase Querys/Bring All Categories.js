@@ -20,15 +20,15 @@ const Bring_All_Categories = async (setCategories, setStrech, language) => {
             
             if (language === 'english') {
 
-                categories = result.docs.map(doc => doc.data().english)
+                categories = result.docs.map(doc => [doc.data().english, doc.data().iconRoute])
             }
             
             if (language === 'spanish') {
-                categories = result.docs.map(doc => doc.data().spanish)
+                categories = result.docs.map(doc => [doc.data().spanish, doc.data().iconRoute])
 
             }
 
-                categories = categories.map(word => capitalize(word, true))
+                categories = categories.map(doc => [capitalize(doc[0], true), doc[1]])
     
             console.log(categories)
             setCategories(await categories)

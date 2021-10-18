@@ -38,13 +38,13 @@ function App() {
     
     RecoveryCurrentScore(setCurrentScore)
     
-    //DetermineUserLanguage(setLanguage)
-    //ChangeTitle(language)
-
+    
     RecoveryCurrentCategory(setCategory)
     setcategoryIsReady(true)
-
+    
+    DetermineUserLanguage(setLanguage)
     RecoveryCurrentLanguage(setLanguage)
+    ChangeTitle(language)
     setLanguageIsReady(true)
   }, [])
 

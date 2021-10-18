@@ -5,6 +5,8 @@ import { AlmacenateLanguage } from "../Scripts/AlmacenateLanguage"
 import Bring_All_Categories from "./Firebase Querys/Bring All Categories"
 import Bring_All_Languages from "./Firebase Querys/Bring All Languages"
 
+import images from "./Images"
+
 
 const Categories = ({language, displayCategories, category, setCategory, currentScore, setLanguage}) => {
 
@@ -70,13 +72,41 @@ const Categories = ({language, displayCategories, category, setCategory, current
                   
                     categories.map((categorie) => {
 
-                        return <button className={ categorie } key={categorie} onClick={() => changeCategory(categorie)}> { categorie.toUpperCase() } </button>
+                        const normalizatedCategorie = categorie[0].toLowerCase()
+
+                        return <button
+                                    className={ categorie[0] }
+                                    key={categorie[0]}
+                                    onClick={() => changeCategory(categorie[0])}
+                                >
+
+                                    <img src={images[normalizatedCategorie]} alt={normalizatedCategorie}/>
+
+                                    <span className="text">
+                                        { categorie[0].toUpperCase() }
+                                    </span>
+
+                                    <div className="blank-space"></div>
+
+                                </button>
                     })
 
                 : null
             }
 
-            <button className='Random' key='Random' onClick={() => changeCategory('')}>{'Random'.toUpperCase()}</button>
+            <button
+                className='Random'
+                key='Random'
+                onClick={() => changeCategory('')}
+            >
+
+                <img src={images['random']} alt="random-icon" />
+                <span className="text">
+                    {'Random'.toUpperCase()}
+                </span>
+
+                <div className="blank-space"></div>
+            </button>
         </div>
     )
 }
