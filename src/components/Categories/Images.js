@@ -15,7 +15,7 @@ const images = {
     countries: countries,
     países: countries,
 
-    pokemon: pokemon,
+    pokemons: pokemon,
 
     'programming languages': programmingLanguage,
     'lenguajes de programación': programmingLanguage,

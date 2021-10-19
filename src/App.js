@@ -134,6 +134,8 @@ function App() {
     <Header
       language={language}
 
+      category={category}
+
       displayCategories={displayCategories}
       setDisplayCategories={setDisplayCategories}
     />

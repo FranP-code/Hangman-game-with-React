@@ -9,6 +9,7 @@ const BringTheWords = async (language = false, category = false, selectedWord) =
 
         
         console.log(category)
+        console.log(language)
         
         if (!language) {
 
@@ -28,8 +29,10 @@ const BringTheWords = async (language = false, category = false, selectedWord) =
             const data = collection(db, `hangman_words/${language}/${category}`)
             const result = await getDocs(data)
             
+            
             const words = await result.docs.map(doc => doc.id)            
             const word = await SelectRandomWord(await words)
+
             return await word
 
         } catch (error) {

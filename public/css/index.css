@@ -150,18 +150,18 @@ header h2 {
   animation: bounce;
   animation-duration: 0.5s;
 }
-.categories-container .categories button.Pokemon, .categories-container .categories select.Pokemon {
+.categories-container .categories button.Pokemons, .categories-container .categories select.Pokemons {
   color: #000;
   background-color: #ffcb05;
   border: #f7c505 solid 2px;
   cursor: pointer;
   transition: 0.4s ease-in-out;
 }
-.categories-container .categories button.Pokemon:hover, .categories-container .categories select.Pokemon:hover {
+.categories-container .categories button.Pokemons:hover, .categories-container .categories select.Pokemons:hover {
   background-color: #ffd638;
   transition: 0.4s ease-in-out;
 }
-.categories-container .categories button.Pokemon:hover img, .categories-container .categories select.Pokemon:hover img {
+.categories-container .categories button.Pokemons:hover img, .categories-container .categories select.Pokemons:hover img {
   animation: bounce;
   animation-duration: 0.5s;
 }

@@ -84,7 +84,7 @@
                 @include backgroundAndHoverDefiner($buttonColor);
             }
 
-            &.Pokemon {
+            &.Pokemons {
                 $buttonColor: #ffcb05;
 
                 @include backgroundAndHoverDefiner($buttonColor);
