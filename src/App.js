@@ -2,19 +2,19 @@ import React, {useState} from "react";
 import CurrentScore from "./components/CurrentScore";
 import Hangman from "./components/Hangman/Hangman";
 import Header from "./components/Header";
-import PuzzleWord from "./components/Hangman/PuzzleWord/PuzzleWord";
+//import PuzzleWord from "./components/Hangman/PuzzleWord/PuzzleWord";
 import Victory from "./components/Hangman/PuzzleWord/Victory";
 import Defeat from "./components/Hangman/PuzzleWord/Defeat";
 import Loading from "./components/Loading";
-import AlmacenateCurrentScore from "./components/Scripts/AlmacenateCurrentScore";
-import DetermineUserLanguage from "./components/Scripts/DetermineUserLanguage";
+import AlmacenateCurrentScore from "./Storage Scripts/AlmacenateCurrentScore";
+import DetermineUserLanguage from "./General Scripts/DetermineUserLanguage";
 import Categories from "./components/Categories/Categories";
-import ChangeTitle from "./components/Scripts/ChangeTitle";
-import AlmacenateCategory from "./components/Scripts/AlmacenateCategory";
-import { RecoveryCurrentScore } from "./components/Scripts/RecoveryCurrentScore";
-import { RecoveryCurrentCategory } from "./components/Scripts/RecoveryCurrentCategory";
-import { RecoveryCurrentLanguage } from "./components/Scripts/RecoveryCurrentLanguage";
-import { AlmacenateLanguage } from "./components/Scripts/AlmacenateLanguage";
+import ChangeTitle from "./General Scripts/ChangeTitle";
+import AlmacenateCategory from "./Storage Scripts/AlmacenateCategory";
+import { RecoveryCurrentScore } from "./Storage Scripts/RecoveryCurrentScore";
+import { RecoveryCurrentCategory } from "./Storage Scripts/RecoveryCurrentCategory";
+import { RecoveryCurrentLanguage } from "./Storage Scripts/RecoveryCurrentLanguage";
+import { AlmacenateLanguage } from "./Storage Scripts/AlmacenateLanguage";
 
 function App() {
 
@@ -43,6 +43,7 @@ function App() {
     
     DetermineUserLanguage(setLanguage)
     RecoveryCurrentLanguage(setLanguage)
+    
     ChangeTitle(language)
     setLanguageIsReady(true)
 
@@ -76,7 +77,7 @@ function App() {
         
         <div className='categories-container'>
           <Categories currentScore={currentScore} displayCategories={displayCategories} language={language} category={category} setCategory={setCategory} categoryIsReady={categoryIsReady} setLanguage={setLanguage}/>
-      </div>
+        </div>
 
       :null
       }
@@ -97,32 +98,7 @@ function App() {
           language={language}
         />
 
-          {!displayApp ? <Loading /> : null }
-
-          
-
-          <PuzzleWord
-
-          language={language}
-
-          category={category}
-          categoryIsReady={categoryIsReady}
-
-          hangmanFrame={hangmanFrame}
-          setHangmanFrame={setHangmanFrame}
-
-          currentScore={currentScore}
-          setCurrentScore={setCurrentScore}
-
-          isVictory={isVictory}
-          setIsVictory={setIsVictory}
-
-          isDefeat={isDefeat}
-          setIsDefeat={setIsDefeat}
-
-          displayApp={displayApp}
-          setDisplayApp={setDisplayApp}
-          />
+        {!displayApp ? <Loading /> : null }
 
         {isVictory ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}
         {isDefeat ? <Defeat /> : null}

@@ -1,7 +1,7 @@
 import { firestore } from "../../../Firebase/Firebase_Config"
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import AdjustHeightCategories from "../../Scripts/AdjustHeightCategories";
-import capitalize from "../../Scripts/Capilazate";
+import AdjustHeightCategories from "../Scripts/AdjustHeightCategories";
+import capitalize from "../../../General Scripts/Capilazate";
 
 
 const Bring_All_Categories = async (setCategories, setStrech, language) => {

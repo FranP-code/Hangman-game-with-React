@@ -1,7 +1,7 @@
 import React from "react"
-import AlmacenateCategory from "../Scripts/AlmacenateCategory"
-import AlmacenateCurrentScore from "../Scripts/AlmacenateCurrentScore"
-import { AlmacenateLanguage } from "../Scripts/AlmacenateLanguage"
+import AlmacenateCategory from "../../Storage Scripts/AlmacenateCategory"
+import AlmacenateCurrentScore from "../../Storage Scripts/AlmacenateCurrentScore"
+import { AlmacenateLanguage } from "../../Storage Scripts/AlmacenateLanguage"
 import Bring_All_Categories from "./Firebase Querys/Bring All Categories"
 import Bring_All_Languages from "./Firebase Querys/Bring All Languages"
 

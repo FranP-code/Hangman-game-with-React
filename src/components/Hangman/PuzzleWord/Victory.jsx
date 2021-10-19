@@ -10,7 +10,7 @@ const Victory = ({currentScore, setCurrentScore}) => {
 
     return (
         <div className="victory animate__animated animate__backInDown">
-            <h1>VICTORIA</h1>
+            <h1>VICTORY</h1>
         </div>
     )
 }

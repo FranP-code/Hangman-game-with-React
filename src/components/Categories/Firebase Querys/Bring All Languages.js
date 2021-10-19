@@ -1,6 +1,6 @@
 import { getDocs, getFirestore, collection } from "@firebase/firestore/"
 import { firestore } from "../../../Firebase/Firebase_Config"
-import capitalize from "../../Scripts/Capilazate"
+import capitalize from "../../../General Scripts/Capilazate"
 
 const Bring_All_Languages = async (setLanguage) => {
     
