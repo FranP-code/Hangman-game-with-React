@@ -1,6 +1,7 @@
 import {firestore} from '../../../../Firebase/Firebase_Config'
 import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
 import GetRandomCategory from './GetRandomCategory';
+import SelectRandomWord from './SelectRandomWord';
 
 const BringTheWords = async (language = false, category = false, actualWord) => {
 
@@ -28,8 +29,9 @@ const BringTheWords = async (language = false, category = false, actualWord) => 
             const result = await getDocs(data)
             
             const words = await result.docs.map(doc => doc.id)
+            const word = SelectRandomWord(await words)
             
-            return words
+            return word
             
         } catch (error) {
             console.log(error)

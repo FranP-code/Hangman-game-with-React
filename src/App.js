@@ -15,11 +15,20 @@ import { RecoveryCurrentScore } from "./Storage Scripts/RecoveryCurrentScore";
 import { RecoveryCurrentCategory } from "./Storage Scripts/RecoveryCurrentCategory";
 import { RecoveryCurrentLanguage } from "./Storage Scripts/RecoveryCurrentLanguage";
 import { AlmacenateLanguage } from "./Storage Scripts/AlmacenateLanguage";
-import WrongLetters from "./components/WrongLetters/WrongLetters";
+import WrongLetters from "./components/LettersRegistered/LettersRegistered";
 import Word from "./components/Word/Word";
+import LettersRegistered from "./components/LettersRegistered/LettersRegistered";
+import alphabet from "./General Scripts/alphabet"
+import checkVictory from "./General Scripts/checkVictory";
+import checkDefeat from "./General Scripts/checkDefeat";
 
 function App() {
-  const [displayApp, setDisplayApp] = useState(false)
+  const [displayApp, setDisplayApp] = useState(true)
+
+  const [selectedWord, setSelectedWord] = useState('TEST')
+
+  const [correctLetters, setCorrectLetters] = useState([])
+  const [lettersRegistered, setLettersRegistered] = useState([])
   
   const [language, setLanguage] = useState('english')
   const [languageIsReady, setLanguageIsReady] = useState(false)
@@ -36,7 +45,6 @@ function App() {
   const [displayCategories, setDisplayCategories] = useState(false)
 
   React.useEffect(() => {
-    
     RecoveryCurrentScore(setCurrentScore)
     
     RecoveryCurrentCategory(setCategory)
@@ -48,10 +56,47 @@ function App() {
     ChangeTitle(language)
     setLanguageIsReady(true)
 
+    setSelectedWord(selectedWord.toLowerCase())
   }, [])
 
-  if (endOfGame) {
+  React.useEffect(() => {
     
+    const registerKeys = e => {
+
+      const currentKey = e.key.toLowerCase()
+
+      if (displayApp) {
+        
+        if (alphabet.includes(currentKey)) {
+
+          setLettersRegistered([...lettersRegistered, currentKey])
+
+          if (selectedWord.includes(currentKey)) {
+
+            if (!correctLetters.includes(currentKey)) {
+              
+              setCorrectLetters([...correctLetters, currentKey])
+            
+              checkVictory(setEndOfGame)
+            }
+
+          }
+            else {
+              setHangmanFrame(hangmanFrame + 1)
+
+              checkDefeat(setEndOfGame, hangmanFrame)
+            }
+        }
+      }
+    }
+
+    window.addEventListener('keyup', registerKeys)
+
+    return () => window.removeEventListener('keyup', registerKeys)
+
+  }, [correctLetters, displayApp, lettersRegistered, setLettersRegistered, hangmanFrame, selectedWord])
+
+  if (endOfGame) {
     
     setTimeout(() => {
         AlmacenateCurrentScore(currentScore)
@@ -97,11 +142,13 @@ function App() {
 
         />
 
-        <Word />
+        <Word
+          selectedWord={selectedWord}
+          correctLetters={correctLetters}
+        />
 
       </div>
-
-        <WrongLetters />
+    </div>
 
         {
           //!displayApp ? <Loading /> : null
@@ -109,7 +156,10 @@ function App() {
 
         {endOfGame === 'Victory' ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}
         {endOfGame === 'Defeat'  ? <Defeat /> : null}
-    </div>
+
+    <LettersRegistered
+          lettersRegistered={lettersRegistered}
+        />
    </>
   );
 }
