@@ -2,34 +2,38 @@ import {firestore} from '../../../../Firebase/Firebase_Config'
 import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
 import GetRandomCategory from './GetRandomCategory';
 
-const BringTheWords = async (language = false, category = false) => {
+const BringTheWords = async (language = false, category = false, actualWord) => {
 
-    console.log(category)
+    if (!actualWord) {
 
-    if (!language) {
-
-        language = 'english'
-
-    }
-
-    if (!category) {
-
-        category = await GetRandomCategory()
         
-    }
-    
-    try {
+        console.log(category)
+        
+        if (!language) {
 
-        const db = getFirestore(firestore)
-        const data = collection(db, `hangman_words/${language}/${category}`)
-        const result = await getDocs(data)
+            language = 'english'
 
-        const words = await result.docs.map(doc => doc.id)
+        }
 
-        return words
+        if (!category) {
 
-    } catch (error) {
-        console.log(error)
+            category = await GetRandomCategory()
+            
+        }
+        
+        try {
+
+            const db = getFirestore(firestore)
+            const data = collection(db, `hangman_words/${language}/${category}`)
+            const result = await getDocs(data)
+            
+            const words = await result.docs.map(doc => doc.id)
+            
+            return words
+            
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 

@@ -30,23 +30,9 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScor
             puzzleWord.appendChild(counter)
         }
 
-        
-        
-        if (actualWord && !displayApp) {
-
-            generatePuzzleWord()
-            setDisplayApp(true)
-    
-        }
-        
-    }, [actualWord, category, displayApp, language, setDisplayApp])
-
-
-    React.useEffect(() => {
-
         const definePuzzle = async () => {
         
-            const words = await BringTheWords(language, category)
+            const words = await BringTheWords(language, category, actualWord)
             const wordSelection = await SelectRandomWord(words)
             
             const word = await words[wordSelection]
@@ -57,17 +43,29 @@ const PuzzleWord = ({hangmanFrame, setHangmanFrame, currentScore, setCurrentScor
         
         if (!displayApp && !actualWord) {
 
-            if ( categoryIsReady) {
-                
                 definePuzzle()
-            }
+            
         }
 
+        
+        if (actualWord && !displayApp) {
 
-        if (displayApp) {
-
-            Register_Input(actualWord, hangmanFrame, setHangmanFrame, setIsVictory, setIsDefeat)
+            generatePuzzleWord()
+            setDisplayApp(true)
+    
         }
+        
+    }, [actualWord, category, displayApp, language, setDisplayApp])
+
+    if (displayApp && actualWord) {
+
+        Register_Input(actualWord, hangmanFrame, setHangmanFrame, setIsVictory, setIsDefeat)
+    }
+    React.useEffect(() => {
+
+
+
+        
 
 
     }, [hangmanFrame, displayApp, actualWord, setHangmanFrame, setIsDefeat, setIsVictory, categoryIsReady, category])

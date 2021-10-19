@@ -38,7 +38,6 @@ function App() {
     
     RecoveryCurrentScore(setCurrentScore)
     
-    
     RecoveryCurrentCategory(setCategory)
     setcategoryIsReady(true)
     
@@ -46,6 +45,7 @@ function App() {
     RecoveryCurrentLanguage(setLanguage)
     ChangeTitle(language)
     setLanguageIsReady(true)
+
   }, [])
 
   if (isVictory || isDefeat) {
@@ -56,7 +56,7 @@ function App() {
         AlmacenateCategory(category)
         AlmacenateLanguage(language)
 
-        window.location.reload(false)
+        window.location.reload(true)
         }, 3000)
   }
 
