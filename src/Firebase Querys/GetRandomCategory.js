@@ -1,4 +1,4 @@
-import {firestore} from '../../../../Firebase/Firebase_Config'
+import {firestore} from '../Firebase/Firebase_Config'
 import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
 
 const GetRandomCategory = async () => {

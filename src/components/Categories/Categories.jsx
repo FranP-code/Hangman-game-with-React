@@ -25,7 +25,7 @@ const Categories = ({language, displayCategories, category, setCategory, current
         AlmacenateCurrentScore(currentScore)
         AlmacenateLanguage(language)
 
-        window.location.reload(false)
+        window.location.reload(true)
 
     }
 
@@ -39,7 +39,7 @@ const Categories = ({language, displayCategories, category, setCategory, current
         AlmacenateCurrentScore(currentScore)
         AlmacenateCategory(category)
 
-        window.location.reload(false)
+        window.location.reload(true)
     }
 
     React.useEffect (() => {

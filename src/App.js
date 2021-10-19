@@ -21,11 +21,13 @@ import LettersRegistered from "./components/LettersRegistered/LettersRegistered"
 import alphabet from "./General Scripts/alphabet"
 import checkVictory from "./General Scripts/checkVictory";
 import checkDefeat from "./General Scripts/checkDefeat";
+import BringTheWords from "./Firebase Querys/BringTheWord";
+import SelectRandomWord from "./Firebase Querys/SelectRandomWord";
 
 function App() {
-  const [displayApp, setDisplayApp] = useState(true)
+  const [displayApp, setDisplayApp] = useState(false)
 
-  const [selectedWord, setSelectedWord] = useState('TEST')
+  const [selectedWord, setSelectedWord] = useState('')
 
   const [correctLetters, setCorrectLetters] = useState([])
   const [lettersRegistered, setLettersRegistered] = useState([])
@@ -44,7 +46,21 @@ function App() {
 
   const [displayCategories, setDisplayCategories] = useState(false)
 
-  React.useEffect(() => {
+  const bringWordFromFirebase = async () => {
+
+    if (!displayApp && selectedWord === '') {
+      setSelectedWord('a')
+
+      let word = await BringTheWords(language, category, selectedWord)
+          word = word.toLowerCase()
+      
+      console.log(word)
+      await setSelectedWord(word)
+      await setDisplayApp(true)
+    }
+  }
+  
+  React.useEffect(() => {    
     RecoveryCurrentScore(setCurrentScore)
     
     RecoveryCurrentCategory(setCategory)
@@ -52,12 +68,18 @@ function App() {
     
     DetermineUserLanguage(setLanguage)
     RecoveryCurrentLanguage(setLanguage)
+    setLanguageIsReady(true)
     
     ChangeTitle(language)
     setLanguageIsReady(true)
 
-    setSelectedWord(selectedWord.toLowerCase())
-  }, [])
+    if (!displayApp && selectedWord === '' && categoryIsReady && languageIsReady) {
+      bringWordFromFirebase()
+    }
+
+    console.log(category)
+  }, [categoryIsReady])
+
 
   React.useEffect(() => {
     
@@ -84,7 +106,7 @@ function App() {
             else {
               setHangmanFrame(hangmanFrame + 1)
 
-              checkDefeat(setEndOfGame, hangmanFrame)
+              checkDefeat(setEndOfGame, hangmanFrame, setCorrectLetters, selectedWord)
             }
         }
       }
@@ -103,7 +125,7 @@ function App() {
         AlmacenateCategory(category)
         AlmacenateLanguage(language)
 
-        window.location.reload(true)
+        window.location.reload(false)
         }, 3000)
   }
 
@@ -149,9 +171,8 @@ function App() {
 
       </div>
     </div>
-
         {
-          //!displayApp ? <Loading /> : null
+          !displayApp ? <Loading /> : null
         }
 
         {endOfGame === 'Victory' ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}

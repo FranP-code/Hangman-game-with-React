@@ -5,7 +5,7 @@ const SelectRandomWord = (arrayWords) => {
         Math.random() * (arrayWords.length - 0) + 0
     )
 
-    return randomWord
+    return arrayWords[randomWord]
 }
 
 export default SelectRandomWord

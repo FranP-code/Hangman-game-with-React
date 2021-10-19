@@ -1,11 +1,11 @@
-import {firestore} from '../../../../Firebase/Firebase_Config'
+import {firestore} from '../Firebase/Firebase_Config'
 import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
 import GetRandomCategory from './GetRandomCategory';
 import SelectRandomWord from './SelectRandomWord';
 
-const BringTheWords = async (language = false, category = false, actualWord) => {
+const BringTheWords = async (language = false, category = false, selectedWord) => {
 
-    if (!actualWord) {
+    if (!selectedWord) {
 
         
         console.log(category)
@@ -28,11 +28,10 @@ const BringTheWords = async (language = false, category = false, actualWord) => 
             const data = collection(db, `hangman_words/${language}/${category}`)
             const result = await getDocs(data)
             
-            const words = await result.docs.map(doc => doc.id)
-            const word = SelectRandomWord(await words)
-            
-            return word
-            
+            const words = await result.docs.map(doc => doc.id)            
+            const word = await SelectRandomWord(await words)
+            return await word
+
         } catch (error) {
             console.log(error)
         }
