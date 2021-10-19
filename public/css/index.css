@@ -28,12 +28,12 @@ header h2 {
   cursor: pointer;
 }
 
-.app {
+.game-container {
   display: flex;
   justify-content: space-around;
   margin-top: 2vh;
 }
-.app .column-2 {
+.game-container .column-2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

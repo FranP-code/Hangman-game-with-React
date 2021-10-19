@@ -1,5 +1,5 @@
 import React from 'react'
-import loadingGifLightTheme from '../img/loading-light-theme.png'
+import loadingGifLightTheme from '../../img/loading-light-theme.png'
 
 const Loading = () => {
     return (

@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import CurrentScore from "./components/CurrentScore";
+import CurrentScore from "./components/CurrentScore/CurrentScore";
 import Hangman from "./components/Hangman/Hangman";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 //import PuzzleWord from "./components/Hangman/PuzzleWord/PuzzleWord";
-import Victory from "./components/Hangman/PuzzleWord/Victory";
-import Defeat from "./components/Hangman/PuzzleWord/Defeat";
-import Loading from "./components/Loading";
+import Victory from "./components/Victory && Defeat/Victory";
+import Defeat from "./components/Victory && Defeat/Defeat";
+import Loading from "./components/Loading/Loading";
 import AlmacenateCurrentScore from "./Storage Scripts/AlmacenateCurrentScore";
 import DetermineUserLanguage from "./General Scripts/DetermineUserLanguage";
 import Categories from "./components/Categories/Categories";
@@ -15,9 +15,12 @@ import { RecoveryCurrentScore } from "./Storage Scripts/RecoveryCurrentScore";
 import { RecoveryCurrentCategory } from "./Storage Scripts/RecoveryCurrentCategory";
 import { RecoveryCurrentLanguage } from "./Storage Scripts/RecoveryCurrentLanguage";
 import { AlmacenateLanguage } from "./Storage Scripts/AlmacenateLanguage";
+import WrongLetters from "./components/WrongLetters/WrongLetters";
+import Word from "./components/Word/Word";
 
 function App() {
-
+  const [displayApp, setDisplayApp] = useState(false)
+  
   const [language, setLanguage] = useState('english')
   const [languageIsReady, setLanguageIsReady] = useState(false)
 
@@ -28,10 +31,8 @@ function App() {
 
   const [hangmanFrame, setHangmanFrame] = useState(0)
 
-  const [isVictory, setIsVictory] = useState(false)
-  const [isDefeat, setIsDefeat] = useState(false)
+  const [endOfGame, setEndOfGame] = useState('')
 
-  const [displayApp, setDisplayApp] = useState(false)
   const [displayCategories, setDisplayCategories] = useState(false)
 
   React.useEffect(() => {
@@ -49,7 +50,7 @@ function App() {
 
   }, [])
 
-  if (isVictory || isDefeat) {
+  if (endOfGame) {
     
     
     setTimeout(() => {
@@ -70,7 +71,7 @@ function App() {
       setDisplayCategories={setDisplayCategories}
     />
     
-    <div className="app">
+    <div className="game-container">
       
       {
         languageIsReady ?
@@ -89,22 +90,25 @@ function App() {
       </div>
       
       <div className='column-2'>
-
-
         <CurrentScore
 
           currentScore={currentScore}
-
           language={language}
+
         />
 
-        {!displayApp ? <Loading /> : null }
-
-        {isVictory ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}
-        {isDefeat ? <Defeat /> : null}
+        <Word />
 
       </div>
 
+        <WrongLetters />
+
+        {
+          //!displayApp ? <Loading /> : null
+        }
+
+        {endOfGame === 'Victory' ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}
+        {endOfGame === 'Defeat'  ? <Defeat /> : null}
     </div>
    </>
   );
