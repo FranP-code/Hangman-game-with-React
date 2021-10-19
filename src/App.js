@@ -23,9 +23,12 @@ import checkVictory from "./General Scripts/checkVictory";
 import checkDefeat from "./General Scripts/checkDefeat";
 import BringTheWords from "./Firebase Querys/BringTheWord";
 import SelectRandomWord from "./Firebase Querys/SelectRandomWord";
+import getWidthScreenUser from "./General Scripts/getWidthScreenUser";
+import LetterInput from "./components/Letter Input/LetterInput";
 
 function App() {
   const [displayApp, setDisplayApp] = useState(false)
+  const [mobileUser, setMobileUser] = useState(false)
 
   const [selectedWord, setSelectedWord] = useState('')
 
@@ -72,6 +75,7 @@ function App() {
     
     ChangeTitle(language)
     setLanguageIsReady(true)
+    getWidthScreenUser(setMobileUser)
 
     if (!displayApp && selectedWord === '' && categoryIsReady && languageIsReady) {
       bringWordFromFirebase()
@@ -117,6 +121,13 @@ function App() {
     return () => window.removeEventListener('keyup', registerKeys)
 
   }, [correctLetters, displayApp, lettersRegistered, setLettersRegistered, hangmanFrame, selectedWord])
+
+  React.useEffect(() => {
+
+    window.addEventListener('resize', () => getWidthScreenUser(setMobileUser))
+
+    return () => window.removeEventListener('resize', () => getWidthScreenUser(setMobileUser))
+  }, [])
 
   if (endOfGame) {
     
@@ -172,7 +183,13 @@ function App() {
         />
 
       </div>
+
     </div>
+        {
+          mobileUser ?
+            <LetterInput />
+          :null
+        }
         {
           !displayApp ? <Loading /> : null
         }

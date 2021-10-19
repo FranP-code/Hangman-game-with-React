@@ -3,21 +3,15 @@ import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firesto
 import GetRandomCategory from './GetRandomCategory';
 import SelectRandomWord from './SelectRandomWord';
 
-const BringTheWords = async (language = false, category = false, selectedWord) => {
+const BringTheWords = async (language = 'english', category = false, selectedWord) => {
 
     if (!selectedWord) {
 
         
         console.log(category)
         console.log(language)
-        
-        if (!language) {
 
-            language = 'english'
-
-        }
-
-        if (!category) {
+        if (!category || category === 'false') {
 
             category = await GetRandomCategory()
             

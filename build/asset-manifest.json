@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.js": "/static/js/main.387d7b4b.chunk.js",
+    "main.js.map": "/static/js/main.387d7b4b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9107414c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9107414c.js.map",
+    "static/js/2.60c5fd81.chunk.js": "/static/js/2.60c5fd81.chunk.js",
+    "static/js/2.60c5fd81.chunk.js.map": "/static/js/2.60c5fd81.chunk.js.map",
+    "static/js/3.5abcd70e.chunk.js": "/static/js/3.5abcd70e.chunk.js",
+    "static/js/3.5abcd70e.chunk.js.map": "/static/js/3.5abcd70e.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.60c5fd81.chunk.js.LICENSE.txt": "/static/js/2.60c5fd81.chunk.js.LICENSE.txt",
+    "static/media/00.568d8d0b.svg": "/static/media/00.568d8d0b.svg",
+    "static/media/01.6338b5c8.svg": "/static/media/01.6338b5c8.svg",
+    "static/media/02.9844dd07.svg": "/static/media/02.9844dd07.svg",
+    "static/media/03.6bbc7f38.svg": "/static/media/03.6bbc7f38.svg",
+    "static/media/04.47aae56d.svg": "/static/media/04.47aae56d.svg",
+    "static/media/05.2556129c.svg": "/static/media/05.2556129c.svg",
+    "static/media/06.66808474.svg": "/static/media/06.66808474.svg",
+    "static/media/cities.6fc05cbf.png": "/static/media/cities.6fc05cbf.png",
+    "static/media/countries.002d677d.png": "/static/media/countries.002d677d.png",
+    "static/media/loading-light-theme.cf953a77.png": "/static/media/loading-light-theme.cf953a77.png",
+    "static/media/pokemon.a607811c.png": "/static/media/pokemon.a607811c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9107414c.js",
+    "static/js/2.60c5fd81.chunk.js",
+    "static/js/main.387d7b4b.chunk.js"
+  ]
+}

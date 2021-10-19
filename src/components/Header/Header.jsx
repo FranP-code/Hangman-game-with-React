@@ -21,12 +21,16 @@ const Header = ({language, category, displayCategories, setDisplayCategories}) =
 
         if (category) {
 
-            console.log(category);
-            
-            let categoryText = category.split('')
-                categoryText[0] = categoryText[0].toUpperCase()
+            if (category !== 'false') {
 
-            setCategoryText(categoryText)
+                
+                console.log(category);
+                
+                let categoryText = category.split('')
+                categoryText[0] = categoryText[0].toUpperCase()
+                
+                setCategoryText(categoryText)
+            }
         }
 
     }, [category])
