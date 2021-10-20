@@ -1,8 +1,6 @@
 import React from 'react'
-import alphabet from '../../General Scripts/alphabet'
-import checkDefeat from '../../General Scripts/checkDefeat'
 
-const LetterInput = ({displayApp, setLettersRegistered, lettersRegistered, selectedWord, correctLetters, setCorrectLetters, setEndOfGame, setHangmanFrame, hangmanFrame, checkVictory}) => {
+const LetterInput = () => {
     
     
     const registerInput = (letter) => {

@@ -101,37 +101,51 @@ function App() {
 
         if (mobileUser) {
 
-          currentKey = e.explicitOriginalTarget.nodeValue
+          if (e.key) {
+            currentKey = e.key.toLowerCase()
+
+          }
+          else {
+
+            currentKey = e.explicitOriginalTarget.nodeValue
+          }
         }
         
         if (alphabet.includes(currentKey)) {
-
-          setLettersRegistered([...lettersRegistered, currentKey])
-
-          if (selectedWord.includes(currentKey)) {
-
-            if (!correctLetters.includes(currentKey)) {
-              
-              setCorrectLetters([...correctLetters, currentKey])
+ 
+            setLettersRegistered([...lettersRegistered, currentKey])
             
-              checkVictory(setEndOfGame)
+            if (selectedWord.includes(currentKey)) {
+              
+              if (!correctLetters.includes(currentKey)) {
+                
+                setCorrectLetters([...correctLetters, currentKey])
+                
+                checkVictory(setEndOfGame)
+              }
+              
             }
-
-          }
             else {
-              setHangmanFrame(hangmanFrame + 1)
-
-              checkDefeat(setEndOfGame, hangmanFrame, setCorrectLetters, selectedWord)
+              
+              if (hangmanFrame <= 5) {
+                
+                setHangmanFrame(hangmanFrame + 1)
+              }
+              
+              checkDefeat(setEndOfGame, hangmanFrame, setCorrectLetters, selectedWord, mobileUser)
             }
-        }
+          }
       }
     }
 
-    window.addEventListener('keyup', registerKeys)
+    if (endOfGame === '') {
+ 
+      window.addEventListener('keyup', registerKeys)
+    }
 
     return () => window.removeEventListener('keyup', registerKeys)
 
-  }, [correctLetters, displayApp, lettersRegistered, setLettersRegistered, hangmanFrame, selectedWord])
+  }, [correctLetters, displayApp, lettersRegistered, setLettersRegistered, hangmanFrame, selectedWord, mobileUser, endOfGame])
 
   React.useEffect(() => {
 
@@ -199,22 +213,6 @@ function App() {
         {
           mobileUser ?
             <LetterInput
-              displayApp={displayApp}
-
-              setLettersRegistered={setLettersRegistered}
-              lettersRegistered={lettersRegistered}
-
-              selectedWord={selectedWord}
-
-              setCorrectLetters={setCorrectLetters}
-              correctLetters={correctLetters}
-
-              setEndOfGame={setEndOfGame}
-
-              setHangmanFrame={setHangmanFrame}
-              hangmanFrame={hangmanFrame}
-
-              checkVictory={checkVictory}
             />
           :null
         }
