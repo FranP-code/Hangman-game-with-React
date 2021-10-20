@@ -1,7 +1,7 @@
 import {firestore} from '../Firebase/Firebase_Config'
 import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
 
-const GetRandomCategory = async () => {
+const GetRandomCategory = async (language) => {
 
 
     let categoriesList = []
@@ -12,14 +12,17 @@ const GetRandomCategory = async () => {
             const data = collection(db, `categories`)
             const result = await getDocs(data)
 
-            result.docs.map(doc => categoriesList.push(doc.id.toLowerCase()))
+            console.log(result)
+            result.docs.map(doc => categoriesList.push(doc.get(language)))
+
+            console.log(categoriesList)
 
             const randomNumber = Math.trunc(
 
                 Math.random() * (categoriesList.length - 0) + 0
             )
             
-            return categoriesList[randomNumber]
+            return categoriesList[randomNumber].toLowerCase()
 
         } catch (error) {
             console.log(error)

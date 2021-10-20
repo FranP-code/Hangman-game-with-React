@@ -220,8 +220,8 @@ function App() {
           !displayApp ? <Loading /> : null
         }
 
-        {endOfGame === 'Victory' ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} /> : null}
-        {endOfGame === 'Defeat'  ? <Defeat /> : null}
+        {endOfGame === 'Victory' ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} language={language}/> : null}
+        {endOfGame === 'Defeat'  ? <Defeat language={language}/> : null}
 
     <LettersRegistered
           lettersRegistered={lettersRegistered}

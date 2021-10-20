@@ -13,7 +13,8 @@ const BringTheWords = async (language = 'english', category = false, selectedWor
 
         if (!category || category === 'false') {
 
-            category = await GetRandomCategory()
+            category = await GetRandomCategory(language)
+            console.log(category)
             
         }
         
@@ -24,7 +25,11 @@ const BringTheWords = async (language = 'english', category = false, selectedWor
             const result = await getDocs(data)
             
             
-            const words = await result.docs.map(doc => doc.id)            
+            console.log(result)
+
+            const words = await result.docs.map(doc => doc.id)
+            
+            console.log(words)
             const word = await SelectRandomWord(await words)
 
             return await word

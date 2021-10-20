@@ -21,6 +21,10 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
+
+        &.blank {
+            border: none;
+        }
     }
 
     .counter {
