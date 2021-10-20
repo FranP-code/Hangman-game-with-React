@@ -89,9 +89,20 @@ function App() {
     
     const registerKeys = e => {
 
-      const currentKey = e.key.toLowerCase()
-
       if (displayApp) {
+        console.log(e)
+
+        let currentKey
+        
+        if (!mobileUser) {
+
+          currentKey = e.key.toLowerCase()
+        }
+
+        if (mobileUser) {
+
+          currentKey = e.explicitOriginalTarget.nodeValue
+        }
         
         if (alphabet.includes(currentKey)) {
 
@@ -187,7 +198,24 @@ function App() {
     </div>
         {
           mobileUser ?
-            <LetterInput />
+            <LetterInput
+              displayApp={displayApp}
+
+              setLettersRegistered={setLettersRegistered}
+              lettersRegistered={lettersRegistered}
+
+              selectedWord={selectedWord}
+
+              setCorrectLetters={setCorrectLetters}
+              correctLetters={correctLetters}
+
+              setEndOfGame={setEndOfGame}
+
+              setHangmanFrame={setHangmanFrame}
+              hangmanFrame={hangmanFrame}
+
+              checkVictory={checkVictory}
+            />
           :null
         }
         {

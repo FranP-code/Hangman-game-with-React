@@ -1,10 +1,13 @@
-const checkDefeat = (setEndOfGame, hangmanFrame, setCorrectLetters, selectedWord) => {
+const checkDefeat = (setEndOfGame, hangmanFrame, setCorrectLetters, selectedWord, mobileUser = false) => {
     
     if (hangmanFrame >= 5) {
         setCorrectLetters([...selectedWord])
         setEndOfGame('Defeat')
 
-        navigator.keyboard.lock();
+        if (!mobileUser) {
+
+            navigator.keyboard.lock();
+        }
 
     }
 }
