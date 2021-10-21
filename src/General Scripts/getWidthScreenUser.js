@@ -1,6 +1,6 @@
 const getWidthScreenUser = (setMobileUser) => {
 
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 991.98) {
         setMobileUser(true)
     }
 

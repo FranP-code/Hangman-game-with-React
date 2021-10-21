@@ -23,8 +23,8 @@
 
         box-sizing: border-box;
 
-        padding-top: 10vh;
-        padding-bottom: 10vh;
+       // padding-top: 10vh;
+        //padding-bottom: 10vh;
 
         button, select {
             height: 10vh;
@@ -148,5 +148,21 @@
                 margin-bottom: 0vh !important;
             }
         }
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .categories-container {
+        
+        .categories {
+            padding: 0;
+
+            button, select {
+    
+                font-size: 4vw !important;
+            }
+        }
+
     }
 }
