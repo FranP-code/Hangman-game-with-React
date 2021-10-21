@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import CurrentScore from "./components/CurrentScore/CurrentScore";
 import Hangman from "./components/Hangman/Hangman";
-import Header from "./components/Header/Header";
+
 //import PuzzleWord from "./components/Hangman/PuzzleWord/PuzzleWord";
 import Victory from "./components/Victory && Defeat/Victory";
 import Defeat from "./components/Victory && Defeat/Defeat";
@@ -26,6 +26,17 @@ import SelectRandomWord from "./Firebase Querys/SelectRandomWord";
 import getWidthScreenUser from "./General Scripts/getWidthScreenUser";
 import LetterInput from "./components/Letter Input/LetterInput";
 import introducedLetterSound from './sound/Letter introduced.mp3'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import AppHeader from "./components/AppHeader/AppHeader";
+import AdminHeader from "./components/Admin/Header/AdminHeader";
+import ControlPanel from "./components/Admin/Identify/Identify";
+import Identify from "./components/Admin/Identify/Identify";
 
 function App() {
   const [displayApp, setDisplayApp] = useState(false)
@@ -170,71 +181,86 @@ function App() {
   }
 
   return (
-   <>
-    <Header
-      language={language}
-
-      category={category}
-
-      displayCategories={displayCategories}
-      setDisplayCategories={setDisplayCategories}
-    />
     
-    <div className="game-container">
-      
-      {
-        languageIsReady ?
+    <Router>
+      <>
         
-        <div className='categories-container'>
-          <Categories currentScore={currentScore} displayCategories={displayCategories} AppLanguage={language} category={category} setCategory={setCategory} categoryIsReady={categoryIsReady} setLanguage={setLanguage}/>
-        </div>
 
-      :null
-      }
+        <Switch>
 
-      <div className='column-1'>
-        <Hangman
-          hangmanFrame={hangmanFrame}
-          />
-      </div>
-      
-      <div className='column-2'>
-        <CurrentScore
+          <Route path='/identify'>
+            <AdminHeader />
+            <Identify />
+          </Route>
+        
+          <Route path="/">
+            <AppHeader
+              language={language}
 
-          currentScore={currentScore}
-          language={language}
+              category={category}
 
-        />
-
-        <Word
-          selectedWord={selectedWord}
-          correctLetters={correctLetters}
-        />
-
-      </div>
-
-    </div>
-        {
-          mobileUser ?
-            <LetterInput
+              displayCategories={displayCategories}
+              setDisplayCategories={setDisplayCategories}
             />
-          :null
-        }
-        {
-          !displayApp ? <Loading /> : null
-        }
 
-        {endOfGame === 'Victory' ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} language={language}/> : null}
-        {endOfGame === 'Defeat'  ? <Defeat language={language}/> : null}
+            <div className="game-container">
+              
+              {
+                languageIsReady ?
+                
+                <div className='categories-container'>
+                  <Categories currentScore={currentScore} displayCategories={displayCategories} AppLanguage={language} category={category} setCategory={setCategory} categoryIsReady={categoryIsReady} setLanguage={setLanguage}/>
+                </div>
 
-    <LettersRegistered
-          lettersRegistered={lettersRegistered}
-        />
-        
-      <audio className="letterIntroduced-audio-container">
-        <source src={introducedLetterSound} type="audio/mp3" autoPlay="true"></source>
-      </audio>
-   </>
+              :null
+              }
+
+              <div className='column-1'>
+                <Hangman
+                  hangmanFrame={hangmanFrame}
+                  />
+              </div>
+              
+              <div className='column-2'>
+                <CurrentScore
+
+                  currentScore={currentScore}
+                  language={language}
+
+                />
+
+                <Word
+                  selectedWord={selectedWord}
+                  correctLetters={correctLetters}
+                />
+
+              </div>
+
+            </div>
+                {
+                  mobileUser ?
+                    <LetterInput
+                    />
+                  :null
+                }
+                {
+                  !displayApp ? <Loading /> : null
+                }
+
+                {endOfGame === 'Victory' ? <Victory currentScore={currentScore} setCurrentScore={setCurrentScore} language={language}/> : null}
+                {endOfGame === 'Defeat'  ? <Defeat language={language}/> : null}
+
+                <LettersRegistered
+                  lettersRegistered={lettersRegistered}
+                />
+                
+              <audio className="letterIntroduced-audio-container">
+                <source src={introducedLetterSound} type="audio/mp3" autoPlay="true"></source>
+              </audio>
+            </Route>
+        </Switch>
+      </>
+   </Router>
   );
 }
 

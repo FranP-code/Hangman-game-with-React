@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+import {withRouter} from "react-router-dom"
 
-const Header = ({language, category, displayCategories, setDisplayCategories}) => {
+
+const AppHeader = ({language, category, displayCategories, setDisplayCategories, history}) => {
 
     const [title, setTitle] = useState('')
     const [categoryText, setCategoryText] = useState('')
@@ -43,8 +45,11 @@ const Header = ({language, category, displayCategories, setDisplayCategories}) =
             >
                 {categoryText}
             </h2>
+            <button className='identify-button' onClick={() => history.push('/identify')}>
+                Admin Place
+            </button>
         </header>
     )
 }
 
-export default Header
+export default withRouter(AppHeader)
