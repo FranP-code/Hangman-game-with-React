@@ -1,4 +1,5 @@
 import React from "react"
+import capitalize from "../../General Scripts/Capilazate"
 import AlmacenateCategory from "../../Storage Scripts/AlmacenateCategory"
 import AlmacenateCurrentScore from "../../Storage Scripts/AlmacenateCurrentScore"
 import { AlmacenateLanguage } from "../../Storage Scripts/AlmacenateLanguage"
@@ -8,7 +9,7 @@ import Bring_All_Languages from "./Firebase Querys/Bring All Languages"
 import images from "./Images"
 
 
-const Categories = ({language, displayCategories, category, setCategory, currentScore, setLanguage}) => {
+const Categories = ({AppLanguage, displayCategories, category, setCategory, currentScore, setLanguage}, props) => {
 
     const [categories, setCategories] = React.useState(false)
     const [languages, setLanguages] = React.useState(false)
@@ -23,7 +24,7 @@ const Categories = ({language, displayCategories, category, setCategory, current
         localStorage.setItem('category', categorie)
 
         AlmacenateCurrentScore(currentScore)
-        AlmacenateLanguage(language)
+        AlmacenateLanguage(AppLanguage)
 
         window.location.reload(true)
 
@@ -44,7 +45,7 @@ const Categories = ({language, displayCategories, category, setCategory, current
 
     React.useEffect (() => {
 
-        Bring_All_Categories(setCategories, setStrech, language, category)
+        Bring_All_Categories(setCategories, setStrech, AppLanguage, category)
         Bring_All_Languages(setLanguages)
         
         console.log(categories)
@@ -60,8 +61,16 @@ const Categories = ({language, displayCategories, category, setCategory, current
                     languages.length > 0 ?
                     
                         languages.map((language) => {
-                            
-                            return <option key={language} value={language}> {language.toUpperCase()} </option>
+
+                            console.log(AppLanguage);
+
+                            if (language === capitalize(AppLanguage)) {
+                                
+                                return <option key={language} value={language} selected > {language.toUpperCase()} </option>
+                            } else {
+   
+                                return <option key={language} value={language}> {language.toUpperCase()} </option>
+                            }
                         })
                         
                         : null

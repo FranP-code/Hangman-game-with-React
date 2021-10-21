@@ -182,7 +182,7 @@ function App() {
         languageIsReady ?
         
         <div className='categories-container'>
-          <Categories currentScore={currentScore} displayCategories={displayCategories} language={language} category={category} setCategory={setCategory} categoryIsReady={categoryIsReady} setLanguage={setLanguage}/>
+          <Categories currentScore={currentScore} displayCategories={displayCategories} AppLanguage={language} category={category} setCategory={setCategory} categoryIsReady={categoryIsReady} setLanguage={setLanguage}/>
         </div>
 
       :null
