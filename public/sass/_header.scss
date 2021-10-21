@@ -17,9 +17,31 @@ header {
     h2 {
         @include titleFont();
         @include titleNormalize();
-        color: rgb(72, 166, 253);
+        color: #48a6fd;
         margin-top: 0.5vh;
 
         cursor: pointer;
+    }
+}
+
+@media (max-width: 991.98px) {
+    
+    header {
+
+        h2 {
+            
+            color: #fff;
+            background-color: #48a6fd;
+
+            padding: 1vh 1vw;
+            border-radius: 5px;
+
+            transition: 0.2s ease-in-out;
+
+            &:active {
+                background-color: #1f476d;
+                transition: 0.4s ease-in-out;
+            }
+        }
     }
 }
