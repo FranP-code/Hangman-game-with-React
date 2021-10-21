@@ -25,6 +25,7 @@ import BringTheWords from "./Firebase Querys/BringTheWord";
 import SelectRandomWord from "./Firebase Querys/SelectRandomWord";
 import getWidthScreenUser from "./General Scripts/getWidthScreenUser";
 import LetterInput from "./components/Letter Input/LetterInput";
+import introducedLetterSound from './sound/Letter introduced.mp3'
 
 function App() {
   const [displayApp, setDisplayApp] = useState(false)
@@ -114,6 +115,9 @@ function App() {
         if (alphabet.includes(currentKey)) {
  
             setLettersRegistered([...lettersRegistered, currentKey])
+           
+            const audio = document.getElementsByClassName('letterIntroduced-audio-container')[0]
+            audio.play()
             
             if (selectedWord.includes(currentKey)) {
               
@@ -226,6 +230,10 @@ function App() {
     <LettersRegistered
           lettersRegistered={lettersRegistered}
         />
+        
+      <audio className="letterIntroduced-audio-container">
+        <source src={introducedLetterSound} type="audio/mp3" autoPlay="true"></source>
+      </audio>
    </>
   );
 }
