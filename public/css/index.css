@@ -446,4 +446,10 @@ header .redirect-button {
   border: 1px solid #797979;
 }
 
+@media (min-width: 991.98px) {
+  .form-container {
+    margin: 0px 20vw;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */
