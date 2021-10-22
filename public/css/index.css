@@ -493,7 +493,7 @@ header .redirect-button:hover {
   height: 16vw;
   max-height: 250px;
   margin: 0px 3vw;
-  font-size: 1.8vw;
+  font-size: 1.5vw;
   font-weight: bold;
   border: none;
   border-radius: 5px;
@@ -519,6 +519,11 @@ header .redirect-button:hover {
   border: 1px solid #77a3bd;
   transition: ease-in-out 0.4s;
 }
+.control-panel .buttons-container button.add-words.active {
+  background-color: #9ec9e2;
+  transition: ease-in-out 0.4s;
+  transform: scale(1.1);
+}
 .control-panel .buttons-container button.add-words:hover {
   background-color: #9ec9e2;
   transition: ease-in-out 0.4s;
@@ -527,6 +532,11 @@ header .redirect-button:hover {
   background-color: #c469cc;
   border: 1px solid #ad69b3;
   transition: ease-in-out 0.4s;
+}
+.control-panel .buttons-container button.add-category.active {
+  background-color: #d38fd9;
+  transition: ease-in-out 0.4s;
+  transform: scale(1.1);
 }
 .control-panel .buttons-container button.add-category:hover {
   background-color: #d38fd9;
@@ -537,6 +547,11 @@ header .redirect-button:hover {
   border: 1px solid #de8643;
   transition: ease-in-out 0.4s;
 }
+.control-panel .buttons-container button.delete-category.active {
+  background-color: #f9ae74;
+  transition: ease-in-out 0.4s;
+  transform: scale(1.1);
+}
 .control-panel .buttons-container button.delete-category:hover {
   background-color: #f9ae74;
   transition: ease-in-out 0.4s;
@@ -546,6 +561,11 @@ header .redirect-button:hover {
   border: 1px solid #c66767;
   transition: ease-in-out 0.4s;
 }
+.control-panel .buttons-container button.delete-word.active {
+  background-color: #e89191;
+  transition: ease-in-out 0.4s;
+  transform: scale(1.1);
+}
 .control-panel .buttons-container button.delete-word:hover {
   background-color: #e89191;
   transition: ease-in-out 0.4s;
@@ -554,6 +574,11 @@ header .redirect-button:hover {
   background-color: #7dbb4e;
   border: 1px solid #72a24e;
   transition: ease-in-out 0.4s;
+}
+.control-panel .buttons-container button.edit-word.active {
+  background-color: #98c973;
+  transition: ease-in-out 0.4s;
+  transform: scale(1.1);
 }
 .control-panel .buttons-container button.edit-word:hover {
   background-color: #98c973;
@@ -619,6 +644,9 @@ header .redirect-button:hover {
   }
   .control-panel .buttons-container.nav-mode button:hover, .control-panel .buttons-container.nav-mode button:focus, .control-panel .buttons-container.nav-mode button:active {
     -webkit-transform: none;
+    transform: none;
+  }
+  .control-panel .buttons-container.nav-mode button.active {
     transform: none;
   }
 }

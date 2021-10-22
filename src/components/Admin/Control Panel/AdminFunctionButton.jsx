@@ -1,13 +1,13 @@
 import React from 'react'
 import DefineClassName from './Actions/Scripts/DefineClassName'
 
-const AdminFunctionButton = ({action, setActualAction}) => {
+const AdminFunctionButton = ({action, actualAction, setActualAction}) => {
   
     const classButton = DefineClassName(action)
 
     return (
         <button
-            className={classButton}
+            className={action === actualAction ? classButton + ' active' : classButton}
             onClick={() => setActualAction(action)}
         >
             {action}

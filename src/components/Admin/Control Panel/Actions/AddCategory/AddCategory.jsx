@@ -5,8 +5,11 @@ const AddCategory = () => {
     console.log('category');
 
     return (
-        <div>
-            
+        <div className="action-form add-category">
+            <form>
+                <input type="text"/>
+                <input type="submit"/>
+            </form>
         </div>
     )
 }

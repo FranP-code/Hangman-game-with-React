@@ -22,7 +22,7 @@
 
             margin: 0px 3vw;
 
-            font-size: 1.8vw;
+            font-size: 1.5vw;
             font-weight: bold;
 
             border: none;
@@ -54,7 +54,13 @@
                 
                 transition: ease-in-out 0.4s;
 
-                
+                &.active {
+
+                    background-color: adjust-color($color: $background-color, $lightness: 10%, $alpha: 1.0);
+                    transition: ease-in-out 0.4s;
+                    transform: scale(1.1);
+
+                }
 
                 &:hover {
                     
@@ -193,6 +199,11 @@
                 margin: 0;
 
                 font-size: 2vw;
+
+                &.active {
+                    transform: none;
+
+                }
             }
         }
     }
