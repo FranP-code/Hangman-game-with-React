@@ -1,8 +1,8 @@
 import React from "react"
-import capitalize from "../../General Scripts/Capilazate"
-import AlmacenateCategory from "../../Storage Scripts/AlmacenateCategory"
-import AlmacenateCurrentScore from "../../Storage Scripts/AlmacenateCurrentScore"
-import { AlmacenateLanguage } from "../../Storage Scripts/AlmacenateLanguage"
+import capitalize from "../../../../General Scripts/Capilazate"
+import AlmacenateCategory from "../../../../Storage Scripts/AlmacenateCategory"
+import AlmacenateCurrentScore from "../../../../Storage Scripts/AlmacenateCurrentScore"
+import { AlmacenateLanguage } from "../../../../Storage Scripts/AlmacenateLanguage"
 import Bring_All_Categories from "./Firebase Querys/Bring All Categories"
 import Bring_All_Languages from "./Firebase Querys/Bring All Languages"
 

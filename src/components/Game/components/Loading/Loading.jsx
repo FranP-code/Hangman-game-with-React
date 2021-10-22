@@ -4,7 +4,7 @@ import loadingGifLightTheme from '../../img/loading-light-theme.png'
 const Loading = () => {
     return (
         <div className='loading'>
-            <img src={loadingGifLightTheme} alt="" />
+            <img src={loadingGifLightTheme} alt="loading" />
         </div>
     )
 }

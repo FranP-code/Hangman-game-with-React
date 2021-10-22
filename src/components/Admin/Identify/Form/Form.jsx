@@ -19,20 +19,25 @@ const Form = () => {
                 option === 'login' ?
 
                     <form>
-                        <input type="email" placeholder="Email"/>
-                        <input type="password" placeholder="Password"/>
-                        <input type="submit" value="Login" />
+                        <input type="email" placeholder="Email" id="login-email"/>
+                        <input type="password" placeholder="Password" id="login-password"/>
+                        <input type="submit" value="Login"  id="login-submit"/>
                     </form>
 
-                : //saasasasasas
+                : null
+            }
+            {
+                option === 'register' ?
 
                     <form>
-                        <input type="email" placeholder="Email"/>
-                        <input type="password" placeholder="Password"/>
-                        <input type="password" placeholder="Confirm Password" value=""/>
-                        <input type="password" placeholder="Admin Reffer Code"/>
-                        <input type="submit" value="Register"/>
+                        <input type="email" placeholder="Email" id="register-email"/>
+                        <input type="password" placeholder="Password" id="register-password"/>
+                        <input type="password" placeholder="Confirm Password" id="register-confirm-password"/>
+                        <input type="password" placeholder="Admin Reffer Code" id="register-admin-code"/>
+                        <input type="submit" value="Register" id=""/>
                     </form>
+                    
+                : null
             }
         </div>
     )
