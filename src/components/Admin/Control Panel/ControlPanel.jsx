@@ -29,13 +29,14 @@ const ControlPanel = (props) => {
             <div className="control-panel">
                 {
                     userLogged ?
-                        <>
-                            <AdminFunctionButton action={'Add Word(s)'} setActualAction={setActualAction}/>
-                            <AdminFunctionButton action={'Add Category'} setActualAction={setActualAction}/>
-                            <AdminFunctionButton action ={'Delete Category'} setActualAction={setActualAction}/>
-                            <AdminFunctionButton action ={'Delete Word'} setActualAction={setActualAction}/>
-                            <AdminFunctionButton action ={'Edit Word'} setActualAction={setActualAction}/>
-                        </>
+                        <div 
+                            className={actualAction ? 'buttons-container nav-mode' : 'buttons-container'}>
+                                <AdminFunctionButton action={'Add Word(s)'} setActualAction={setActualAction}/>
+                                <AdminFunctionButton action={'Add Category'} setActualAction={setActualAction}/>
+                                <AdminFunctionButton action ={'Delete Category'} setActualAction={setActualAction}/>
+                                <AdminFunctionButton action ={'Delete Word'} setActualAction={setActualAction}/>
+                                <AdminFunctionButton action ={'Edit Word'} setActualAction={setActualAction}/>
+                        </div>
                     : null
                 }
                 {

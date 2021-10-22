@@ -1,38 +1,34 @@
 .control-panel {
-    height: 60vh;
-    max-width: 100vw;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .buttons-container {
 
-    flex-wrap: wrap;
+        height: 60vh;
+        max-width: 100vw;
 
-    padding: 5vh 15vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-    button {
-        
-        width: 16vw;
-        max-width: 250px;
-        height: 16vw;
-        max-height: 250px;
+        flex-wrap: wrap;
 
-        margin: 0px 3vw;
+        padding: 5vh 15vw;
 
-        font-size: 1.8vw;
-        font-weight: bold;
-
-        border: none;
-        border-radius: 5px;
-
-        cursor: pointer;
-
-        @mixin generateColors($background-color) {
+        button {
             
-            background-color: $background-color;
-            border: 1px solid adjust-color($color: $background-color, $blackness: 10%, $alpha: 1.0);
-            
-            transition: ease-in-out 0.4s;
+            width: 16vw;
+            max-width: 250px;
+            height: 16vw;
+            max-height: 250px;
+
+            margin: 0px 3vw;
+
+            font-size: 1.8vw;
+            font-weight: bold;
+
+            border: none;
+            border-radius: 5px;
+
+            cursor: pointer;
 
             & {
                 display: inline-block;
@@ -44,54 +40,103 @@
                 transition-duration: 0.3s;
                 -webkit-transition-property: transform;
                 transition-property: transform;
-              }
-              &:hover, &:focus, &:active {
+            }
+
+            &:hover, &:focus, &:active {
                 -webkit-transform: scale(1.1);
                 transform: scale(1.1);
-              }
+            }
 
-            &:hover {
+            @mixin generateColors($background-color) {
                 
-                background-color: adjust-color($color: $background-color, $lightness: 10%, $alpha: 1.0);
+                background-color: $background-color;
+                border: 1px solid adjust-color($color: $background-color, $blackness: 10%, $alpha: 1.0);
+                
                 transition: ease-in-out 0.4s;
 
+                
+
+                &:hover {
+                    
+                    background-color: adjust-color($color: $background-color, $lightness: 10%, $alpha: 1.0);
+                    transition: ease-in-out 0.4s;
+
+                }
+            }
+
+            &.add-words {
+                
+                $background-color: #77b3d6;
+
+                @include generateColors($background-color);
+            }
+
+            &.add-category {
+
+                $background-color: #c469cc;
+
+                @include generateColors($background-color);
+            }
+
+            &.delete-category {
+
+                $background-color: #f79143;
+
+                @include generateColors($background-color);
+            }
+
+            &.delete-word {
+
+                $background-color: #df6767;
+
+                @include generateColors($background-color);
+            }
+
+            &.edit-word {
+
+                $background-color: #7dbb4e;
+
+                @include generateColors($background-color)
             }
         }
+    }
 
-        &.add-words {
-            
-            $background-color: #77b3d6;
+    .buttons-container.nav-mode {
+        
+        height: 5vw;
 
-            @include generateColors($background-color);
+        padding: 1vh 5vw;
+
+        align-items: initial;
+        justify-content: space-between;
+
+        button {
+            height: 3vh;
+            width: 15vw;
+
+            margin: 0px 0.5vw;
+
+            font-size: 1vw;
         }
+    }
+}
 
-        &.add-category {
-
-            $background-color: #c469cc;
-
-            @include generateColors($background-color);
-        }
-
-        &.delete-category {
-
-            $background-color: #f79143;
-
-            @include generateColors($background-color);
-        }
-
-        &.delete-word {
-
-            $background-color: #df6767;
-
-            @include generateColors($background-color);
-        }
-
-        &.edit-word {
-
-            $background-color: #7dbb4e;
-
-            @include generateColors($background-color)
-        }
+@mixin normalizeButton() {
+    & {
+        display: initial;
+        vertical-align: none;
+        -webkit-transform: none;
+        transform:none;
+        box-shadow:none;
+        -webkit-transition-duration:none;
+        transition-duration: none;
+        -webkit-transition-property:none;
+        transition-property: none;
+    }
+    
+    &:hover, &:focus, &:active {
+        -webkit-transform: none;
+        transform: none;
     }
 }
 
@@ -99,24 +144,56 @@
 
     .control-panel {
 
-        height: auto;
+        .buttons-container {
 
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: initial;        
+            height: auto;
 
-        flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: initial;        
 
-        button {
-            max-width: none;
-            max-height: none;
+            flex-wrap: nowrap;
+
+            button {
+                max-width: none;
+                max-height: none;
+                
+                width: 66vw;
+                height: 20vh;
+
+                font-size: 3vw;
+
+                margin-bottom: 3vh;
+            }
+        }
+
+        .buttons-container.nav-mode {
+            padding: 0;
+
+            height: auto;
+
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            align-items: stretch;
+            align-content: stretch;
             
-            width: 66vw;
-            height: 20vh;
+            button {
+                @include normalizeButton();
+                box-sizing: border-box;
+                
+                height: 8vh;
+                border-radius: 0;
+                
+                min-width: 50vw;
 
-            font-size: 3vw;
+                flex-grow: 1;
+                align-self: stretch;
 
-            margin-bottom: 3vh;
+                margin: 0;
+
+                font-size: 2vw;
+            }
         }
     }
 }
