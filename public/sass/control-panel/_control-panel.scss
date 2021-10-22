@@ -1,5 +1,7 @@
 .control-panel {
 
+   // height: 80vh;
+
     .buttons-container {
 
         height: 60vh;
@@ -125,6 +127,8 @@
             font-size: 1vw;
         }
     }
+
+    @import 'action-form';
 }
 
 @mixin normalizeButton() {
@@ -134,10 +138,10 @@
         -webkit-transform: none;
         transform:none;
         box-shadow:none;
-        -webkit-transition-duration:none;
-        transition-duration: none;
-        -webkit-transition-property:none;
-        transition-property: none;
+        //-webkit-transition-duration:none;
+        //transition-duration: none;
+        //-webkit-transition-property:none;
+        //transition-property: none;
     }
     
     &:hover, &:focus, &:active {
@@ -186,12 +190,14 @@
             
             button {
                 @include normalizeButton();
+                transition: 0.4 ease-in-out;
+
                 box-sizing: border-box;
                 
                 height: 8vh;
                 border-radius: 0;
                 
-                min-width: 50vw;
+                width: 50vw;
 
                 flex-grow: 1;
                 align-self: stretch;
@@ -211,4 +217,22 @@
 
 @media (max-width: 576px) {
 
+    .control-panel {
+
+        .buttons-container {
+            
+            button {
+
+                font-size: 12pt;
+            }
+        }
+
+        .buttons-container.nav-mode {
+
+            button {
+
+                font-size: 12pt;
+            }
+        }
+    }
 }

@@ -596,6 +596,83 @@ header .redirect-button:hover {
   margin: 0px 0.5vw;
   font-size: 1vw;
 }
+.control-panel .action-form {
+  box-sizing: border-box;
+  padding: 0px 16.5vw;
+}
+.control-panel .action-form form {
+  height: 100%;
+  max-width: 742px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 3vh;
+}
+.control-panel .action-form form select {
+  height: 4vh;
+  outline: none;
+}
+.control-panel .action-form form textarea {
+  resize: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.control-panel .action-form form input[type=submit] {
+  font-size: 12pt;
+  margin-top: 1vh;
+  height: 5vh;
+  background-color: #2f71d5;
+  color: #fff;
+  border: none;
+  border: 1px solid #5597fc;
+}
+.control-panel .action-form form input[type=submit]:hover {
+  background-color: #397de5;
+}
+.control-panel .action-form form input[type=text] {
+  height: 5vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2vw;
+  border: none;
+  border-bottom: 1px solid #a2a2a2;
+}
+.control-panel .action-form.add-word form select {
+  margin-bottom: 0.5vh;
+}
+.control-panel .action-form.add-word form textarea {
+  margin-top: 2vh;
+}
+.control-panel .action-form.add-category form input[type=text] {
+  margin-bottom: 1vh;
+}
+.control-panel .action-form.delete-word form select {
+  margin-bottom: 0.5vh;
+}
+.control-panel .action-form.edit-word form select {
+  margin-bottom: 0.5vh;
+}
+@media (max-width: 991.98px) {
+  .control-panel .action-form form input[type=submit] {
+    font-size: 2.4vw;
+  }
+}
+@media (max-width: 576px) {
+  .control-panel .action-form {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .control-panel .action-form form select {
+    border: none;
+    border-bottom: 1px solid #a2a2a2;
+    background-color: #fff;
+  }
+  .control-panel .action-form form input[type=submit] {
+    font-size: 12pt;
+  }
+  .control-panel .action-form form input[type=text] {
+    font-size: 12pt;
+  }
+}
 
 @media (max-width: 991.98px) {
   .control-panel .buttons-container {
@@ -622,10 +699,11 @@ header .redirect-button:hover {
     align-content: stretch;
   }
   .control-panel .buttons-container.nav-mode button {
+    transition: 0.4 ease-in-out;
     box-sizing: border-box;
     height: 8vh;
     border-radius: 0;
-    min-width: 50vw;
+    width: 50vw;
     flex-grow: 1;
     align-self: stretch;
     margin: 0;
@@ -637,10 +715,6 @@ header .redirect-button:hover {
     -webkit-transform: none;
     transform: none;
     box-shadow: none;
-    -webkit-transition-duration: none;
-    transition-duration: none;
-    -webkit-transition-property: none;
-    transition-property: none;
   }
   .control-panel .buttons-container.nav-mode button:hover, .control-panel .buttons-container.nav-mode button:focus, .control-panel .buttons-container.nav-mode button:active {
     -webkit-transform: none;
@@ -648,6 +722,14 @@ header .redirect-button:hover {
   }
   .control-panel .buttons-container.nav-mode button.active {
     transform: none;
+  }
+}
+@media (max-width: 576px) {
+  .control-panel .buttons-container button {
+    font-size: 12pt;
+  }
+  .control-panel .buttons-container.nav-mode button {
+    font-size: 12pt;
   }
 }
 
