@@ -2,7 +2,7 @@ import React from 'react'
 import AdminHeader from './Header/AdminHeader'
 import Identify from './Identify/Identify'
 
-const Admin = () => {
+const AdminIdentify = () => {
     return (
         <>
             <AdminHeader />
@@ -11,4 +11,4 @@ const Admin = () => {
     )
 }
 
-export default Admin
+export default AdminIdentify
