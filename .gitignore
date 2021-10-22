@@ -23,3 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/Firebase/Firebase_Config.js
+/public/Hover.css/css

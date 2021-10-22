@@ -9,11 +9,11 @@ import {
   Link
 } from "react-router-dom";
 import AppHeader from "./components/Game/components/AppHeader/AppHeader";
-import AdminHeader from "./components/AdminIdentify/Header/AdminHeader";
-import ControlPanel from "./components/AdminIdentify/Identify/Identify";
-import Identify from "./components/AdminIdentify/Identify/Identify";
+import AdminHeader from "./components/Admin/Header/AdminHeader";
+import ControlPanel from "./components/Admin/Control Panel/ControlPanel";
+import Identify from "./components/Admin/AdminIdentify/Identify/Identify";
 import Game from "./components/Game/Game";
-import AdminIdentify from "./components/AdminIdentify/AdminIdentify";
+import AdminIdentify from "./components/Admin/AdminIdentify/AdminIdentify";
 
 function App() {
   return (
@@ -21,7 +21,11 @@ function App() {
       <>
         <Switch>
 
-          
+          <Route path='/admin-place'>
+
+            <ControlPanel />
+
+          </Route>
 
           <Route path='/identify'>
 

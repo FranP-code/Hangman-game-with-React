@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Loading from '../../../Game/components/Loading/Loading'
+import Loading from '../../../../Game/components/Loading/Loading'
 import MessageContainer from './MessageContainer'
 import FormActions from './Scripts/FormActions'
 

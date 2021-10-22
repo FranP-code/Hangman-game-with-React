@@ -1,5 +1,5 @@
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { firestore } from '../../../../../Firebase/Firebase_Config';
+import { firestore } from '../../../../../../Firebase/Firebase_Config';
 
 const BringAdminCode = async () => {
 
