@@ -7,10 +7,10 @@ const Form = () => {
     return (
         <div className="form-container">
             <nav className="options-container">
-                <div className={option === 'login' ? "active login" : 'login'} onClick={() => setOption('login')}>
+                <div className={option === 'login' ? "active option" : 'option'} onClick={() => setOption('login')}>
                     LOGIN
                 </div>
-                <div className={option === 'register' ? "active register" : 'register'} onClick={() => setOption('register')}>
+                <div className={option === 'register' ? "active option" : 'option'} onClick={() => setOption('register')}>
                     REGISTER
                 </div>
             </nav>
@@ -33,7 +33,7 @@ const Form = () => {
                         <input type="email" placeholder="Email" id="register-email"/>
                         <input type="password" placeholder="Password" id="register-password"/>
                         <input type="password" placeholder="Confirm Password" id="register-confirm-password"/>
-                        <input type="password" placeholder="Admin Reffer Code" id="register-admin-code"/>
+                        <input type="password" placeholder="Admin Referred Code" id="register-admin-code"/>
                         <input type="submit" value="Register" id=""/>
                     </form>
                     
