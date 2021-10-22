@@ -27,6 +27,11 @@ header h2 {
   margin-top: 0.5vh;
   cursor: pointer;
 }
+header .redirect-button {
+  position: absolute;
+  left: 5%;
+  width: 10vw;
+}
 
 @media (max-width: 991.98px) {
   header h2 {
@@ -39,6 +44,12 @@ header h2 {
   header h2:active {
     background-color: #1f476d;
     transition: 0.4s ease-in-out;
+  }
+}
+@media (max-width: 576px) {
+  header .redirect-button {
+    width: 20vw;
+    position: initial;
   }
 }
 .game-container {

@@ -45,7 +45,10 @@ const AppHeader = ({language, category, displayCategories, setDisplayCategories,
             >
                 {categoryText}
             </h2>
-            <button className='identify-button' onClick={() => history.push('/identify')}>
+            <button
+                className="redirect-button"
+                onClick={() => history.push('/identify')}
+            >
                 Admin Place
             </button>
         </header>
