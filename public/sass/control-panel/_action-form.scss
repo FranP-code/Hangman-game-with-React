@@ -88,9 +88,20 @@
 
         form {
 
-            input[type="text"] {
+            .frist-row {
 
-                margin-bottom: 1vh;
+                margin-bottom: 3vh;
+            }
+
+            .frist-row, .second-row {
+
+                display: flex;
+                flex-direction: column;
+                
+                input[type="text"] {
+                    
+                    margin-bottom: 1vh;
+                }
             }
         }
     }

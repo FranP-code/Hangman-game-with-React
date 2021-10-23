@@ -12,26 +12,20 @@ const Messages = ({data}) => {
             setSucess(true)
             setMessage('TEST')
         }
-        
-        else {
-   
-            setSucess(data['sucess'])
-            setMessage(data['message'])
-        }
-            
+
     }, [])
 
     return (
         <>
             {
 
-                sucess ?
+                data['sucess'] ?
                     <div className="message animate__animated animate__slideInDown sucess">
-                        {message}
+                        {data['message']}
                     </div>
                 :
                     <div className="message animate__animated animate__slideInDown error">
-                        {message}
+                        {data['message']}
                     </div>
             }
         </>

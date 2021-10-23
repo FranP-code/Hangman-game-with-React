@@ -493,6 +493,7 @@ header .redirect-button:hover {
   height: 16vw;
   max-height: 250px;
   margin: 0px 3vw;
+  margin-bottom: 5vh;
   font-size: 1.5vw;
   font-weight: bold;
   border: none;
@@ -646,7 +647,14 @@ header .redirect-button:hover {
 .control-panel .action-form.add-word form textarea {
   margin-top: 2vh;
 }
-.control-panel .action-form.add-category form input[type=text] {
+.control-panel .action-form.add-category form .frist-row {
+  margin-bottom: 3vh;
+}
+.control-panel .action-form.add-category form .frist-row, .control-panel .action-form.add-category form .second-row {
+  display: flex;
+  flex-direction: column;
+}
+.control-panel .action-form.add-category form .frist-row input[type=text], .control-panel .action-form.add-category form .second-row input[type=text] {
   margin-bottom: 1vh;
 }
 .control-panel .action-form.delete-word form select {

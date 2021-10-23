@@ -8,6 +8,9 @@ const AddCategory = () => {
     const [categorySpanish, setCategorySpanish] = useState('')
     const [categoryEnglish, setCategoryEnglish] = useState('')
 
+    const [fristWordEnglish, setFristWordEnglish] = useState('')
+    const [fristWordSpanish, setFristWordSpanish] = useState('')
+
     const [loading, setLoading] = useState(false)
     
     const [data, setData] = useState('') 
@@ -17,11 +20,14 @@ const AddCategory = () => {
 
         setLoading(true)
 
-        const result = await AddCategoryToFirebase(categoryEnglish, categorySpanish)
+        const result = await AddCategoryToFirebase(categoryEnglish, categorySpanish, fristWordEnglish, fristWordSpanish)
         setData(result)
 
         setCategoryEnglish('')
         setCategorySpanish('')
+
+        setFristWordEnglish('')
+        setFristWordSpanish('')
 
         setLoading(false)
     }
@@ -41,21 +47,43 @@ const AddCategory = () => {
                     <form
                         onSubmit={e => addCategorySubmit(e)}
                     >
-                        
-                        <input
-                            type="text"
-                            placeholder="Add the new category [English]"
-                            required
-                            onChange={e => setCategoryEnglish(e.target.value)}
-                            value={categoryEnglish}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Add the new category [Spanish]"
-                            required
-                            onChange={e => setCategorySpanish(e.target.value)}
-                            value={categorySpanish}
-                        />
+
+                        <div className="frist-row">
+                            <input
+                                type="text"
+                                placeholder="Add the new category [English]"
+                                required
+                                onChange={e => setCategoryEnglish(e.target.value)}
+                                value={categoryEnglish}
+                            />
+
+                            <input
+                                type="text"
+                                placeholder="Add one word to the new category [English]"
+                                required
+                                onChange={e => setFristWordEnglish(e.target.value)}
+                                value={fristWordEnglish}
+                            />
+                        </div>
+
+                        <div className="second-row">
+                            <input
+                                type="text"
+                                placeholder="Add the new category [Spanish]"
+                                required
+                                onChange={e => setCategorySpanish(e.target.value)}
+                                value={categorySpanish}
+                                />
+
+                            <input
+                                type="text"
+                                placeholder="Add one word to the new category [Spanish]"
+                                required
+                                onChange={e => setFristWordSpanish(e.target.value)}
+                                value={fristWordSpanish}
+                                />
+                        </div>
+
                         <input type="submit"/>
                     </form>
                 </div>
