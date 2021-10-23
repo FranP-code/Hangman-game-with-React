@@ -129,6 +129,13 @@
     }
 
     @import 'action-form';
+    @import 'message';
+    
+    .loading {
+        position: initial;
+
+        height: 100%;
+    }
 }
 
 @mixin normalizeButton() {

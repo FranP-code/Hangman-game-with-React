@@ -677,6 +677,28 @@ header .redirect-button:hover {
     font-size: 12pt;
   }
 }
+.control-panel .message {
+  padding: 4vh 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  user-select: none;
+  margin: 0;
+  font-size: 22pt;
+  color: #fff;
+}
+.control-panel .message.error {
+  background-color: #ff4e4e;
+}
+.control-panel .message.sucess {
+  background-color: #80ff4e;
+}
+.control-panel .loading {
+  position: initial;
+  height: 100%;
+}
 
 @media (max-width: 991.98px) {
   .control-panel .buttons-container {

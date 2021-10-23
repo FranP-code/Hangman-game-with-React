@@ -25,7 +25,7 @@ const ControlPanel = (props) => {
 
     return (
         <>
-        <AdminHeader />
+            <AdminHeader />
             <div className="control-panel">
                 {
                     userLogged ?
