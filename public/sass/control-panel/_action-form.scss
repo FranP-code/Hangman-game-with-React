@@ -108,6 +108,13 @@
 
     &.delete-word {
 
+        .loading {
+
+            position: absolute;
+            top: 25vh;
+            height: 30vh;
+        }
+
         form {
 
             select {

@@ -9,7 +9,7 @@ import AddWordToFirebase from './Firebase Querys/AddWordToFirebase'
 
 const AddWord = () => {
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [languageList, setLanguageList] = useState([])
     const [categoryList, setCategoryList] = useState([])
 

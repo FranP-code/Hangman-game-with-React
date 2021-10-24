@@ -524,6 +524,7 @@ header .redirect-button:hover {
   background-color: #9ec9e2;
   transition: ease-in-out 0.4s;
   transform: scale(1.1);
+  border-bottom: 3px solid #7e7e7e;
 }
 .control-panel .buttons-container button.add-words:hover {
   background-color: #9ec9e2;
@@ -538,6 +539,7 @@ header .redirect-button:hover {
   background-color: #d38fd9;
   transition: ease-in-out 0.4s;
   transform: scale(1.1);
+  border-bottom: 3px solid #7e7e7e;
 }
 .control-panel .buttons-container button.add-category:hover {
   background-color: #d38fd9;
@@ -552,6 +554,7 @@ header .redirect-button:hover {
   background-color: #f9ae74;
   transition: ease-in-out 0.4s;
   transform: scale(1.1);
+  border-bottom: 3px solid #7e7e7e;
 }
 .control-panel .buttons-container button.delete-category:hover {
   background-color: #f9ae74;
@@ -566,6 +569,7 @@ header .redirect-button:hover {
   background-color: #e89191;
   transition: ease-in-out 0.4s;
   transform: scale(1.1);
+  border-bottom: 3px solid #7e7e7e;
 }
 .control-panel .buttons-container button.delete-word:hover {
   background-color: #e89191;
@@ -580,6 +584,7 @@ header .redirect-button:hover {
   background-color: #98c973;
   transition: ease-in-out 0.4s;
   transform: scale(1.1);
+  border-bottom: 3px solid #7e7e7e;
 }
 .control-panel .buttons-container button.edit-word:hover {
   background-color: #98c973;
@@ -656,6 +661,11 @@ header .redirect-button:hover {
 }
 .control-panel .action-form.add-category form .frist-row input[type=text], .control-panel .action-form.add-category form .second-row input[type=text] {
   margin-bottom: 1vh;
+}
+.control-panel .action-form.delete-word .loading {
+  position: absolute;
+  top: 25vh;
+  height: 30vh;
 }
 .control-panel .action-form.delete-word form select {
   margin-bottom: 0.5vh;
