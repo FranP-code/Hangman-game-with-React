@@ -9,8 +9,8 @@ const Messages = ({data}) => {
 
         if (data === '') {
 
-            setSucess(true)
-            setMessage('TEST')
+            data['sucess'] = true
+            data['message'] = 'TEST'
         }
 
     }, [])
