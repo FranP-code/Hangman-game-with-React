@@ -1,5 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router'
+import AccountPreview from '../Account/AccountPreview/AccountPreview'
 
 const AdminHeader = (props) => {
     return (
@@ -13,6 +14,8 @@ const AdminHeader = (props) => {
             >
                 Back to the Game
             </button>
+
+            <AccountPreview />
         </header>
     )
 }

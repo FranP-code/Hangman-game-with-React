@@ -6,15 +6,20 @@ import {withRouter} from 'react-router'
 
 const Identify = (props) => {
 
-    const auth = getAuth()
+    
+    React.useEffect(() => {
 
-    onAuthStateChanged(auth, (user) => {
+        const auth = getAuth()
+        
+        onAuthStateChanged(auth, (user) => {
+            
+            if (user) {
+                props.history.push('/admin-place')
+            } 
+        })  
 
-        if (user) {
-            props.history.push('/admin-place')
-        } 
-    })
-
+    }, [props.history])
+    
     return (
         <Form />
     )
