@@ -40,7 +40,7 @@ const AccountPreview = (props) => {
                     defineName(user.email)
                     setLogin(true)
                 } else {
-                    alert('NO USER')
+                    props.history.push('/identify')
                 }
             })   
         }

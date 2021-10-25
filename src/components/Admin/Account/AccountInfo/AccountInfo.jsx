@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getAuth, onAuthStateChanged } from "firebase/auth"
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"
 
 
 import capitalize from '../../Control Panel/Scripts/Capilazate'
@@ -7,8 +7,9 @@ import bringDataFromFirebase from './Firebase Querys/bringDataFromFirebase'
 import HeaderAccount from './HeaderAccount/HeaderAccount'
 import hideRefferCode from './Scripts/hideRefferCode'
 import Loading from '../../../Loading/Loading'
+import { withRouter } from 'react-router'
 
-const AccountInfo = () => {
+const AccountInfo = (props) => {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState(false)
@@ -21,6 +22,12 @@ const AccountInfo = () => {
 
     const closeSession = async () => {
 
+        const auth = getAuth()
+
+        signOut(auth)
+            .then(() => {
+                props.history.push('/identify')
+        })
     }
 
     const applyResult = (result) => {
@@ -43,7 +50,6 @@ const AccountInfo = () => {
 
     React.useEffect(() => {
 
-
         const auth = getAuth()
 
         onAuthStateChanged(auth, (user) => {
@@ -51,13 +57,11 @@ const AccountInfo = () => {
             if (user) {
                 setEmail(user.email)
                 bringData(user.email)
-            }
-        })
-    
-        
+            } else {
 
-        
-        
+                props.history.push('/identify')
+            }
+        })        
 
     }, [])
 
@@ -109,4 +113,4 @@ const AccountInfo = () => {
     )
 }
 
-export default AccountInfo
+export default withRouter(AccountInfo)
