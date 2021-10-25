@@ -142,6 +142,8 @@ const AddWord = () => {
                         <select
                             onChange={(e) => setCategorySelection(e.target.value)}
                             value={categorySelection}
+
+                            disabled={languageSelection === false || languageSelection === 'default' ? true : false}
                         >
                             <option value="default">Select category</option>
                             {
@@ -153,6 +155,8 @@ const AddWord = () => {
                             cols="30" rows="10"
                             onChange={(e) => setWordsToAdd(e.target.value)}
                             value={wordsToAdd}
+
+                            disabled={categorySelection === false || categorySelection === 'default' ? true : false}
                         />
                         <input type="submit" value="Add Word(s)" />
                     </form>
