@@ -1,4 +1,5 @@
 import React from 'react'
+import SendMeEmail from '../../Email/SendMeEmail'
 import Loading from '../../Loading/Loading'
 import Messages from '../../Messages/Messages'
 import capitalize from '../../Scripts/Capilazate'
@@ -49,6 +50,8 @@ const DeleteCategory = () => {
         setLoading(false)
 
         setChangedTheFirebaseCategories(true)
+
+        SendMeEmail('Delete Category')
     }
 
     React.useEffect(() => {

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import AddCategoryToFirebase from './Firebase Querys/AddCategoryToFirebase'
 import Loading from '../../Loading/Loading'
 import Messages from '../../Messages/Messages'
+import SendMeEmail from '../../Email/SendMeEmail'
 
 const AddCategory = () => {
 
@@ -30,6 +31,7 @@ const AddCategory = () => {
         setFristWordSpanish('')
 
         setLoading(false)
+        SendMeEmail('Add Category')
     }
 
     return (

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import SendMeEmail from '../../Email/SendMeEmail'
 import Loading from '../../Loading/Loading'
 import Messages from '../../Messages/Messages'
 import capitalize from '../../Scripts/Capilazate'
@@ -137,6 +138,8 @@ const EditWord = () => {
         setNewWord('')
 
         setLoading(false)
+
+        SendMeEmail('Edit word')
     }
 
     React.useEffect(() => {

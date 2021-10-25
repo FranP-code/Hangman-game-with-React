@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import SendMeEmail from '../../Email/SendMeEmail'
 import Loading from '../../Loading/Loading'
 import Messages from '../../Messages/Messages'
 import capitalize from '../../Scripts/Capilazate'
@@ -107,6 +108,7 @@ const DeleteWord = () => {
         setWordSelect('')
         
         bringData(response)
+        SendMeEmail('Delete Word')
     }
     
     React.useEffect(() => {

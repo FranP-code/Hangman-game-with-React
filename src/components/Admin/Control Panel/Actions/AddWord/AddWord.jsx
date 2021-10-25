@@ -5,6 +5,7 @@ import BringLanguages from './Firebase Querys/BringLanguages'
 import capitalize from '../../Scripts/Capilazate'
 import Messages from '../../Messages/Messages'
 import AddWordToFirebase from './Firebase Querys/AddWordToFirebase'
+import SendMeEmail from '../../Email/SendMeEmail'
 
 
 const AddWord = () => {
@@ -109,6 +110,7 @@ const AddWord = () => {
             setWordsToAdd('')
 
             setLoading(false)
+            SendMeEmail('Add Word(s)')
         })
 
         //! CREDITS FOR THE PROMISE LOGIC: https://stackoverflow.com/a/38407013
