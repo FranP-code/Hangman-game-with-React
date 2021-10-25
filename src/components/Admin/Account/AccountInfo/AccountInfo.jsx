@@ -6,6 +6,7 @@ import capitalize from '../../Control Panel/Scripts/Capilazate'
 import bringDataFromFirebase from './Firebase Querys/bringDataFromFirebase'
 import HeaderAccount from './HeaderAccount/HeaderAccount'
 import hideRefferCode from './Scripts/hideRefferCode'
+import Loading from '../../../Loading/Loading'
 
 const AccountInfo = () => {
 
@@ -64,33 +65,44 @@ const AccountInfo = () => {
         <>
             <HeaderAccount name={'Fran'} />
 
+            
+            <div className="info-account">
+
             {
                 loading ? 
-                    <h1>aaa</h1>
+                    <Loading />
                 :
-            <div className="info-account">
-                <h2>{name}</h2>
-                <h3>{capitalize(position)}</h3>
+                    <>
+                        <div className="person">
+                            <h2>{name}</h2>
+                            <h3>{capitalize(position)}</h3>
+                            <h3>Email: {email}</h3>
+                        </div>
+                        
+                        <div className="functions">
 
-                <button
-                    onClick={() => closeSession()}
-                >
-                    Close Session
-                </button>
+                            <button
+                                onClick={() => closeSession()}
+                                className="close-session"
+                            >
+                                Close Session
+                            </button>
 
-                <h3>{email}</h3>
 
-                <div className="reffer-code-container">
+                            <div className="reffer-code-container">
 
-                    <h3>{refferCodeHide ? hideRefferCode(refferCode) : refferCode}</h3>
-                    <button
-                        onClick={() => setRefferCodeHide(!refferCodeHide)}
-                    >
-                        👁️
-                    </button>
-                </div>
-            </div>
+                                <p>Reffer Code: {refferCodeHide ? hideRefferCode(refferCode) : refferCode}</p>
+
+                                <button
+                                    onClick={() => setRefferCodeHide(!refferCodeHide)}
+                                >
+                                    👁️
+                                </button>
+                            </div>
+                        </div>
+                    </>
             }
+            </div>
 
         </>
         

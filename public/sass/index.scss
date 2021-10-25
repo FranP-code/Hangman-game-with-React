@@ -16,7 +16,7 @@ html, body {
 
 @mixin bodyFont() {
 
-    font-family: 'Rambla', sans-serif;
+    font-family: 'Helveltica', sans-serif;
     font-weight: 400;
 }
 
@@ -30,4 +30,5 @@ html, body {
 @import 'message';
 @import './control-panel/control-panel';
 @import './control-panelDemo/demo-message';
-@import './control-panelDemo/admin-header-demo.scss'
+@import './control-panelDemo/admin-header-demo.scss';
+@import './info-account/info-account';

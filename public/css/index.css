@@ -150,7 +150,7 @@ header .account-preview .full-name.show {
 }
 
 .word {
-  font-family: "Rambla", sans-serif;
+  font-family: "Helveltica", sans-serif;
   font-weight: 400;
   font-size: 50pt;
   display: flex;
@@ -893,6 +893,68 @@ header.demo h1 span.demoSpan:hover {
 header.demo h1 span.demoSpan:hover, header.demo h1 span.demoSpan:focus, header.demo h1 span.demoSpan:active {
   -webkit-transform: rotate(4deg);
   transform: rotate(4deg);
+}
+
+.info-account {
+  font-family: "Helveltica", sans-serif;
+  font-weight: 400;
+}
+.info-account .loading {
+  position: initial;
+  height: max-content;
+  height: 50vh;
+}
+.info-account .person {
+  width: 50vw;
+  margin-left: 15vw;
+  border-bottom: 1px solid #cabf9e;
+}
+.info-account .person h3 {
+  font-weight: 300;
+}
+.info-account .functions {
+  width: 50vw;
+  margin-left: 15vw;
+  margin-top: 2vh;
+  display: flex;
+}
+.info-account .functions .close-session {
+  width: 20vw;
+  height: 10vh;
+  background: #b9b9b9;
+  transition: ease-in-out 0.4s;
+  border: 0;
+  border-radius: 10px;
+}
+.info-account .functions .close-session:hover {
+  background: #ffa5a5;
+  transition: ease-in-out 0.4s;
+}
+.info-account .functions .reffer-code-container {
+  margin-left: 5vh;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.info-account .functions .reffer-code-container p {
+  width: 100%;
+  flex-grow: 1;
+}
+.info-account .functions .reffer-code-container button {
+  width: 3vw;
+  height: 3vw;
+  background-color: white;
+  border: 0;
+  border: 1px solid #535353;
+  border-radius: 100%;
+}
+.info-account .functions .reffer-code-container button:hover {
+  background-color: white;
+  border: 3px solid #535353;
+  background-color: rgba(0, 0, 0, 0.035);
+}
+.info-account .functions .reffer-code-container button:active {
+  border: 4px solid #535353;
 }
 
 /*# sourceMappingURL=index.css.map */
