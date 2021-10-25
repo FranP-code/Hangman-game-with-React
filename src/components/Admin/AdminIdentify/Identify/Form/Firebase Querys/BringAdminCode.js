@@ -6,7 +6,7 @@ const BringAdminCode = async () => {
     try {
         
         const db = getFirestore(firestore)
-        const data = await collection(db, 'adminCodes')
+        const data = await collection(db, 'users')
         const result = await getDocs(data)
 
         return await result.docs.map(doc => doc.data())

@@ -1,13 +1,15 @@
 import React from 'react'
 import BringAdminCode from '../Firebase Querys/BringAdminCode'
 import RegisterNewUser from '../Firebase Querys/RegisterNewUser'
+import MakeRandomString from './MakeRandomString'
 
 const ValidateRegister = async (data, setMessage) => {
     
-    const email = data[0]
-    const password = data[1]
-    const confirmPassword = data[2]
-    const adminRefferCode = data[3]
+    const name = data[0]
+    const email = data[1]
+    const password = data[2]
+    const confirmPassword = data[3]
+    const adminRefferCode = data[4]
 
     if (password.length < 6) {
 
@@ -29,10 +31,13 @@ const ValidateRegister = async (data, setMessage) => {
 
     documents.forEach(document => {
         
-        if (adminRefferCode === document.code) {
+        if (adminRefferCode === document.refferCode) {
             
             adminRefferCodeIsValid = true
-            RegisterNewUser(email, password, setMessage)
+
+            const position = document.position
+            const refferCode = MakeRandomString(30)
+            RegisterNewUser(name, email, password, setMessage, position, refferCode)
         }
     });
 

@@ -8,6 +8,7 @@ const Form = () => {
 
     const [option, setOption] = useState('login')
 
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -88,11 +89,19 @@ const Form = () => {
 
                     <form
                         onSubmit={(e) => {
-                            FormActions(e, [email, password, confirmPassword, adminReferredCode], option, setLoading, setMessage)
+                            FormActions(e, [name, email, password, confirmPassword, adminReferredCode], option, setLoading, setMessage)
                             clearStates()
                             setLoading(true)
                         }}
                     >
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            required
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
+                        />
+
                         <input
                             type="email"
                             placeholder="Email"
