@@ -414,6 +414,24 @@ header .redirect-button:hover {
 .form-container {
   font-family: Arial, Helvetica, sans-serif;
 }
+.form-container .message {
+  padding: 4vh 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  user-select: none;
+  margin: 0;
+  font-size: 22pt;
+  color: #fff;
+}
+.form-container .message.error {
+  background-color: #ff4e4e;
+}
+.form-container .message.sucess {
+  background-color: #80ff4e;
+}
 .form-container .options-container {
   display: flex;
   height: 10vh;
