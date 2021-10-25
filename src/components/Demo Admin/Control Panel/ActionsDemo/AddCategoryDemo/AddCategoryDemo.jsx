@@ -1,11 +1,8 @@
 import React, {useState} from 'react'
-import AddCategoryToFirebase from './Firebase Querys/AddCategoryToFirebase'
 import Loading from '../../../../Loading/Loading'
 import Messages from '../../../../Messages/Messages'
-import SendMeEmail from '../../Email/SendMeEmail'
 
-const AddCategory = () => {
-
+const AddCategoryDemo = () => {
     const [categorySpanish, setCategorySpanish] = useState('')
     const [categoryEnglish, setCategoryEnglish] = useState('')
 
@@ -21,7 +18,10 @@ const AddCategory = () => {
 
         setLoading(true)
 
-        const result = await AddCategoryToFirebase(categoryEnglish, categorySpanish, fristWordEnglish, fristWordSpanish)
+        const result = await {
+            sucess: true, 
+            message: 'All Right!'
+        }
         setData(result)
 
         setCategoryEnglish('')
@@ -31,7 +31,7 @@ const AddCategory = () => {
         setFristWordSpanish('')
 
         setLoading(false)
-        SendMeEmail('Add Category')
+        ////SendMeEmail('Add Category')
     }
 
     return (
@@ -94,4 +94,4 @@ const AddCategory = () => {
     )
 }
 
-export default AddCategory
+export default AddCategoryDemo

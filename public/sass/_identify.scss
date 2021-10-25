@@ -38,7 +38,7 @@
 
     form {
 
-        height: 64vh;
+        //height: 64vh;
 
         display: flex;
         flex-direction: column;
@@ -70,6 +70,17 @@
 
             }
         }
+    }
+
+    p.aditional-text {
+
+        color:rgb(54, 112, 201);
+
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .loading {

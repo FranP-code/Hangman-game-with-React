@@ -1,15 +1,10 @@
 import React, {useState} from 'react'
-import SendMeEmail from '../../Email/SendMeEmail'
+import capitalize from '../../../../Admin/Control Panel/Scripts/Capilazate'
 import Loading from '../../../../Loading/Loading'
 import Messages from '../../../../Messages/Messages'
-import capitalize from '../../Scripts/Capilazate'
-import BringCategories from '../AddWord/Firebase Querys/BringCategories'
-import BringLanguages from '../AddWord/Firebase Querys/BringLanguages'
-import BringTheWordsFromFirebase from './Firebase Querys/BringTheWordsFromFirebase'
-import DeleteWordFromFirebase from './Firebase Querys/DeleteWordFromFirebase'
 
-const DeleteWord = () => {
-
+const DeleteWordDemo = () => {
+    
     const [loading, setLoading] = useState(true)
 
     const [languageList, setLanguageList] = useState([])
@@ -26,13 +21,13 @@ const DeleteWord = () => {
 
         const bringCategoriesToThisComponent = async () => {
 
-            const categories = await BringCategories()
+            const categories = await ['Category A', 'Category B', 'Category C']
             setCategoryList(categories)
         }
 
         const bringLanguagesToThisComponent = async () => {
 
-            const languages = await BringLanguages()
+            const languages = await ['english', 'spanish']
             setLanguageList(languages)
         }
 
@@ -55,7 +50,7 @@ const DeleteWord = () => {
 
         console.log(category);
         
-        const words = await BringTheWordsFromFirebase(languageSelect, category)
+        const words = await ['Example 1', 'Example 2', 'Example 3']
         
         await setWordsList(words)
         await setLoading(false)
@@ -97,7 +92,10 @@ const DeleteWord = () => {
             return
         }
 
-        const response = await DeleteWordFromFirebase(languageSelect, categorySelect, wordSelect)
+        const response = await {
+            sucess: true,
+            message: 'All Right!'
+        }
 
         
         setLanguageList([])
@@ -108,7 +106,7 @@ const DeleteWord = () => {
         setWordSelect('')
         
         bringData(response)
-        SendMeEmail('Delete Word')
+        ////SendMeEmail('Delete Word')
     }
     
     React.useEffect(() => {
@@ -173,4 +171,4 @@ const DeleteWord = () => {
     )
 }
 
-export default DeleteWord
+export default DeleteWordDemo

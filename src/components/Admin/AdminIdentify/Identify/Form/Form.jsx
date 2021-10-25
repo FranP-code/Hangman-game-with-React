@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Loading from '../../../../Game/components/Loading/Loading'
+import AditionalText from './AditionalText/AditionalText'
 import MessageContainer from './MessageContainer'
 import FormActions from './Scripts/FormActions'
 
@@ -130,6 +131,8 @@ const Form = () => {
                     <Loading />
                 : null
             }
+            <AditionalText text={'Admin place demo look'} link={'/demo-admin-place'}/>
+
         </div>
     )
 }

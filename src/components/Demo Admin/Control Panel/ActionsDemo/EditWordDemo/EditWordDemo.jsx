@@ -1,15 +1,10 @@
 import React, {useState} from 'react'
-import SendMeEmail from '../../Email/SendMeEmail'
+import capitalize from '../../../../Admin/Control Panel/Scripts/Capilazate'
 import Loading from '../../../../Loading/Loading'
 import Messages from '../../../../Messages/Messages'
-import capitalize from '../../Scripts/Capilazate'
-import BringLanguages from '../AddWord/Firebase Querys/BringLanguages'
-import BringCategories from './Firebase Querys/BringCategories'
-import BringWordsFromFirebase from './Firebase Querys/BringWordsFromFirebase'
-import modifyWordInFirebase from './Firebase Querys/modifyWordInFirebase'
 
-const EditWord = () => {
-
+const EditWordDemo = () => {
+    
     const [loading, setLoading] = useState(true)
 
     const [languageList, setLanguageList] = useState([])
@@ -26,7 +21,7 @@ const EditWord = () => {
 
     const bringLanguagesToThisComponent = async () => {
     
-        const languages = await BringLanguages()
+        const languages = await ['english', 'spanish']
         setLanguageList(languages)
 
         setLoading(false)
@@ -51,7 +46,7 @@ const EditWord = () => {
 
         setLoading(true)
 
-        const category = await BringCategories()
+        const category = await ['Category A', 'Category B', 'Category C']
         
         await setCategoryList(category)
 
@@ -75,7 +70,11 @@ const EditWord = () => {
 
         setLoading(true)
 
-        const result = await BringWordsFromFirebase(languageSelection, categorySelected)
+        const result = await {
+
+            sucess: true,
+            message: 'All Right!'
+        }
         console.log(result)
         setWordsList(result)
 
@@ -128,9 +127,10 @@ const EditWord = () => {
             return
         }
 
-        const result = await modifyWordInFirebase(languageSelection, categorySelection, wordSelection, newWord)
-        
-        setData(result)
+        setData({
+            sucess: true,
+            message: `All Right!`
+        })
 
         setLanguageSelection('')
         setCategorySelection('')
@@ -139,7 +139,7 @@ const EditWord = () => {
 
         setLoading(false)
 
-        SendMeEmail('Edit word')
+        ////SendMeEmail('Edit word')
     }
 
     React.useEffect(() => {
@@ -217,4 +217,4 @@ const EditWord = () => {
     )
 }
 
-export default EditWord
+export default EditWordDemo

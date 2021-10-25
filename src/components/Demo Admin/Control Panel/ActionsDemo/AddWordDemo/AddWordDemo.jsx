@@ -1,15 +1,11 @@
 import React, {useState} from 'react'
+import capitalize from '../../../../Admin/Control Panel/Scripts/Capilazate'
 import Loading from '../../../../Loading/Loading'
-import BringCategories from './Firebase Querys/BringCategories'
-import BringLanguages from './Firebase Querys/BringLanguages'
-import capitalize from '../../Scripts/Capilazate'
 import Messages from '../../../../Messages/Messages'
-import AddWordToFirebase from './Firebase Querys/AddWordToFirebase'
-import SendMeEmail from '../../Email/SendMeEmail'
+import DemoMessage from '../../DemoMessage/DemoMessage'
+import DemoMessageLogic from '../../DemoMessage/DemoMessageLogic'
 
-
-const AddWord = () => {
-
+const AddWordDemo = () => {
     const [loading, setLoading] = useState(true)
     const [languageList, setLanguageList] = useState([])
     const [categoryList, setCategoryList] = useState([])
@@ -22,13 +18,12 @@ const AddWord = () => {
 
     const [canceledAddingWords, setCanceledAddingWords] = useState(false)
 
+    const [message, setMessage] = useState(false)
+
     const bringData = async () => {
 
-        const language = await BringLanguages()
-        const category = await BringCategories()
-
-        setLanguageList(language)
-        setCategoryList(category)
+        setLanguageList(['english', 'spanish'])
+        setCategoryList(['Category A', 'Category B', 'Category C'])
 
         setLoading(false)
     } 
@@ -38,12 +33,6 @@ const AddWord = () => {
         bringData()
         
     }, [])
-
-    const changeLanguage = (e) => {
-
-        setLanguageSelection(e.target.value)
-        setCategorySelection(false)
-    }
 
     const submitInformation = async (e) => {
         
@@ -86,40 +75,50 @@ const AddWord = () => {
             return
         }
 
-        let splitedWords = wordsToAdd.split(',')
+        // // let splitedWords = wordsToAdd.split(',')
 
-        splitedWords = splitedWords.map(word => word.trim())
-        splitedWords = splitedWords.map(word => word.toLowerCase())
-        splitedWords = splitedWords.map(word => capitalize(word))
+        // // splitedWords = splitedWords.map(word => word.trim())
+        // // splitedWords = splitedWords.map(word => word.toLowerCase())
+        // // splitedWords = splitedWords.map(word => capitalize(word))
 
-        const uploadWordsPromise = new Promise((resolve, reject) => {
+        // const uploadWordsPromise = new Promise((resolve, reject) => {
             
-                splitedWords.forEach(async (word, index) => {
+        //         splitedWords.forEach(async (word, index) => {
                        
-                       if (!canceledAddingWords) {
+        //                if (!canceledAddingWords) {
                            
-                           if (await AddWordToFirebase(languageSelection, categorySelection, word, setData) === 'error') {
+        //                    if (await AddWordToFirebase(languageSelection, categorySelection, word, setData) === 'error') {
                                
-                               setCanceledAddingWords(true)
-                           }
+        //                        setCanceledAddingWords(true)
+        //                    }
 
-                           if (index === splitedWords.length -1) resolve();
-                       }
-                   }) 
-            }   
-        )
+        //                    if (index === splitedWords.length -1) resolve();
+        //                }
+        //            }) 
+        //     }   
+        // )
 
-        uploadWordsPromise.then(() => {
-
-            setLanguageSelection('')
-            setCategorySelection('')
-            setWordsToAdd('')
-
-            setLoading(false)
-            SendMeEmail('Add Word(s)')
+        setData({
+            sucess: true,
+            message: 'All Right!'
         })
 
+        setLanguageSelection('')
+        setCategorySelection('')
+        setWordsToAdd('')
+
+        setLoading(false)
+        ////SendMeEmail('Add Word(s)')
+
         //! CREDITS FOR THE PROMISE LOGIC: https://stackoverflow.com/a/38407013
+
+        setMessage(true)
+    }
+
+    const changeLanguage = (e) => {
+
+        setLanguageSelection(e.target.value)
+        setCategorySelection(false)
     }
 
     return (
@@ -169,9 +168,14 @@ const AddWord = () => {
                         <input type="submit" value="Add Word(s)" />
                     </form>
                 </div>
-            }   
+            }
+            {
+                message ?
+                    <DemoMessage setMessage={setMessage}/>
+                : null
+            }
         </>
     )
 }
 
-export default AddWord
+export default AddWordDemo

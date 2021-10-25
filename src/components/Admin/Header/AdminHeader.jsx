@@ -3,8 +3,10 @@ import {withRouter} from 'react-router'
 
 const AdminHeader = (props) => {
     return (
-        <header>
-            <h1>Admin Place</h1>
+        <header className={props.demo === true ? 'demo' : null}>
+            {
+                props.demo === true ? <h1>Admin Place&nbsp;<span className='demoSpan'>Demo!</span></h1> : <h1>Admin Place</h1>
+            }
             <button
                 className="redirect-button"
                 onClick={() => props.history.push('/')}    

@@ -1,13 +1,9 @@
 import React from 'react'
-import SendMeEmail from '../../Email/SendMeEmail'
+import capitalize from '../../../../Admin/Control Panel/Scripts/Capilazate'
 import Loading from '../../../../Loading/Loading'
 import Messages from '../../../../Messages/Messages'
-import capitalize from '../../Scripts/Capilazate'
-import BringCategories from './Firebase Querys/BringCategories'
-import DeleteCategoryFirebase from './Firebase Querys/DeleteCategoryFirebase'
 
-const DeleteCategory = () => {
-
+const DeleteCategoryDemo = () => {
     const [categoriesList, setCategoriesList] = React.useState([])
     const [loading, setLoading] = React.useState(true)
 
@@ -18,7 +14,7 @@ const DeleteCategory = () => {
 
     const BringCategoriesToThisComponent = async () => {
 
-        const result = await BringCategories()
+        const result = await ['english', 'spanish']
         setCategoriesList(result)
         setLoading(false)
 
@@ -43,7 +39,7 @@ const DeleteCategory = () => {
 
         if (answer) {
 
-            await DeleteCategoryFirebase(categorySelection, setData)
+            //
         }
 
         categorySelection('')
@@ -51,7 +47,7 @@ const DeleteCategory = () => {
 
         setChangedTheFirebaseCategories(true)
 
-        SendMeEmail('Delete Category')
+        //SendMeEmail('Delete Category')
     }
 
     React.useEffect(() => {
@@ -96,4 +92,4 @@ const DeleteCategory = () => {
     )
 }
 
-export default DeleteCategory
+export default DeleteCategoryDemo

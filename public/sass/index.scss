@@ -26,6 +26,8 @@ html, body {
 @import 'loading';
 @import 'letters-registered';
 @import 'letter-input';
-@import 'form';
+@import 'identify';
 @import 'message';
 @import './control-panel/control-panel';
+@import './control-panelDemo/demo-message';
+@import './control-panelDemo/admin-header-demo.scss'
