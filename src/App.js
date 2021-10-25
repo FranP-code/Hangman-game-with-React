@@ -16,12 +16,19 @@ import Game from "./components/Game/Game";
 import AdminIdentify from "./components/Admin/AdminIdentify/AdminIdentify";
 import DemoControlPanel from "./components/Demo Admin/Control Panel/DemoControlPanel";
 import PasswordRecovery from "./components/Admin/AdminIdentify/Identify/PasswordRecovery/PasswordRecovery";
+import AccountInfo from "./components/Admin/Account/AccountInfo/AccountInfo";
 
 function App() {
   return (
     <Router>
       <>
         <Switch>
+
+          <Route path="/my-account">
+          
+            <AccountInfo />
+
+          </Route>
 
           <Route path="/password-recovery">
 
