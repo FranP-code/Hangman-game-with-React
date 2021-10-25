@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import capitalize from '../../../../Admin/Control Panel/Scripts/Capilazate'
 import Loading from '../../../../Loading/Loading'
 import Messages from '../../../../Messages/Messages'
+import DemoMessage from '../../DemoMessage/DemoMessage'
 
 const EditWordDemo = () => {
     
@@ -18,6 +19,8 @@ const EditWordDemo = () => {
     const [newWord, setNewWord] = useState('')
 
     const [data, setData] = useState(false)
+
+    const [message, setMessage] = React.useState(false)
 
     const bringLanguagesToThisComponent = async () => {
     
@@ -70,13 +73,7 @@ const EditWordDemo = () => {
 
         setLoading(true)
 
-        const result = await {
-
-            sucess: true,
-            message: 'All Right!'
-        }
-        console.log(result)
-        setWordsList(result)
+        setWordsList(['Example 1', 'Example 2', 'Example 3'])
 
         setLoading(false)
     }
@@ -84,7 +81,8 @@ const EditWordDemo = () => {
     const submitEditWord = async (e) => {
 
         e.preventDefault()
-
+        
+        setData(false)
         setLoading(true)
 
         if (languageSelection === '' || languageSelection === 'default') {
@@ -132,13 +130,14 @@ const EditWordDemo = () => {
             message: `All Right!`
         })
 
-        setLanguageSelection('')
-        setCategorySelection('')
-        setWordSelection('')
+        setLanguageSelection('default')
+        setCategorySelection('default')
+        setWordSelection('default')
         setNewWord('')
-
+        
         setLoading(false)
 
+        setMessage(true)
         ////SendMeEmail('Edit word')
     }
 
@@ -212,6 +211,11 @@ const EditWordDemo = () => {
                         <input type="submit" value="Edit" />
                     </form>
                 </div>
+            }
+            {
+                message ?
+                    <DemoMessage setMessage={setMessage}/>
+                : null
             }
         </>
     )

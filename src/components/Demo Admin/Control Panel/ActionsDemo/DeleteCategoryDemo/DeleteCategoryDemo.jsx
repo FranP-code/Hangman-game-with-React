@@ -2,6 +2,7 @@ import React from 'react'
 import capitalize from '../../../../Admin/Control Panel/Scripts/Capilazate'
 import Loading from '../../../../Loading/Loading'
 import Messages from '../../../../Messages/Messages'
+import DemoMessage from '../../DemoMessage/DemoMessage'
 
 const DeleteCategoryDemo = () => {
     const [categoriesList, setCategoriesList] = React.useState([])
@@ -12,9 +13,11 @@ const DeleteCategoryDemo = () => {
 
     const [changedTheFirebaseCategories, setChangedTheFirebaseCategories] = React.useState(true)
 
+    const [message, setMessage] = React.useState(false)
+
     const BringCategoriesToThisComponent = async () => {
 
-        const result = await ['english', 'spanish']
+        const result = await ['Category A', 'Category B', 'Category C']
         setCategoriesList(result)
         setLoading(false)
 
@@ -39,14 +42,17 @@ const DeleteCategoryDemo = () => {
 
         if (answer) {
 
-            //
+            setData({
+                sucess: true,
+                message: `All Right!`
+            })
         }
 
-        categorySelection('')
+        setCategorySelection('')
         setLoading(false)
 
         setChangedTheFirebaseCategories(true)
-
+        setMessage(true)
         //SendMeEmail('Delete Category')
     }
 
@@ -87,6 +93,11 @@ const DeleteCategoryDemo = () => {
                         <input type="submit" value="Delete"/>
                     </form>
                 </div>
+            }
+            {
+                message ?
+                    <DemoMessage setMessage={setMessage}/>
+                : null
             }
         </>
     )

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Loading from '../../../../Loading/Loading'
 import Messages from '../../../../Messages/Messages'
+import DemoMessage from '../../DemoMessage/DemoMessage'
 
 const AddCategoryDemo = () => {
     const [categorySpanish, setCategorySpanish] = useState('')
@@ -12,6 +13,8 @@ const AddCategoryDemo = () => {
     const [loading, setLoading] = useState(false)
     
     const [data, setData] = useState('') 
+
+    const [message, setMessage] = useState(false)
 
     const addCategorySubmit = async (e) => {
         e.preventDefault()
@@ -31,6 +34,7 @@ const AddCategoryDemo = () => {
         setFristWordSpanish('')
 
         setLoading(false)
+        setMessage(true)
         ////SendMeEmail('Add Category')
     }
 
@@ -89,6 +93,11 @@ const AddCategoryDemo = () => {
                         <input type="submit"/>
                     </form>
                 </div>
+            }
+            {
+                message ?
+                    <DemoMessage setMessage={setMessage}/>
+                : null
             }
         </>
     )

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import capitalize from '../../../../Admin/Control Panel/Scripts/Capilazate'
 import Loading from '../../../../Loading/Loading'
 import Messages from '../../../../Messages/Messages'
+import DemoMessage from '../../DemoMessage/DemoMessage'
 
 const DeleteWordDemo = () => {
     
@@ -16,6 +17,8 @@ const DeleteWordDemo = () => {
     const [wordSelect, setWordSelect] = useState('')
 
     const [data, setData] = useState(false)
+
+    const [message, setMessage] = React.useState(false)
 
     const bringData = async (response = false) => {
 
@@ -106,6 +109,8 @@ const DeleteWordDemo = () => {
         setWordSelect('')
         
         bringData(response)
+        setMessage(true)
+
         ////SendMeEmail('Delete Word')
     }
     
@@ -167,6 +172,11 @@ const DeleteWordDemo = () => {
                     <input type="submit" value="Delete" />
                 </form>
             </div>
+            {
+                message ?
+                    <DemoMessage setMessage={setMessage}/>
+                : null
+            }
         </>
     )
 }
