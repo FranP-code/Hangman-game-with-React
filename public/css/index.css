@@ -673,6 +673,9 @@ header .redirect-button:hover {
 .control-panel .action-form.edit-word form select {
   margin-bottom: 0.5vh;
 }
+.control-panel .action-form.edit-word form input[type=text]:disabled {
+  opacity: 40%;
+}
 @media (max-width: 991.98px) {
   .control-panel .action-form form input[type=submit] {
     font-size: 2.4vw;

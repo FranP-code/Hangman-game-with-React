@@ -132,6 +132,14 @@
 
                 margin-bottom: 0.5vh;
             }
+
+            input[type="text"] {
+
+                &:disabled {
+
+                    opacity: 40%;
+                }
+            }
         }
     }
 
