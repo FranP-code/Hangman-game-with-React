@@ -81,13 +81,21 @@ header .account-preview .full-name {
   opacity: 0%;
   transition: 0.4s ease-in-out;
   text-align: center;
-  padding: 0px 0.5vw;
+  padding: 0px 2vw;
   padding-bottom: 1vh;
   border-radius: 10px;
 }
 header .account-preview .full-name.show {
   opacity: 100%;
   transition: 0.4s ease-in-out;
+}
+@media (max-width: 991.98px) {
+  header .account-preview {
+    left: 80%;
+  }
+  header .account-preview .full-name.show {
+    opacity: 0%;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -440,6 +448,11 @@ header .account-preview .full-name.show {
   height: 50px;
 }
 
+@media (max-width: 991.98px) {
+  .loading {
+    height: 150vh;
+  }
+}
 .letters-registered {
   padding: 0px 5vw;
   display: flex;
@@ -1023,8 +1036,15 @@ header.demo h1 span.demoSpan:hover, header.demo h1 span.demoSpan:focus, header.d
   padding-bottom: 5vh;
   padding-left: 3vw;
   box-sizing: border-box;
+  position: absolute;
+  bottom: 0px;
 }
 
+@media (max-width: 991.98px) {
+  .made-with-love {
+    position: initial;
+  }
+}
 .credits {
   font-family: "Helveltica", sans-serif;
   font-weight: 400;

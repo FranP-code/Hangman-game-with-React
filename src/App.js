@@ -27,21 +27,23 @@ function App() {
       <>
         <Switch>
 
-          <Route path='/pokemon'>
+          {/* <Route path='/pokemon'>
 
             <PokemonScripts />
 
-          </Route>
+          </Route> */}
 
           <Route path="/my-account">
           
             <AccountInfo />
+            <Footer />
 
           </Route>
 
           <Route path="/password-recovery">
 
             <PasswordRecovery />
+            <Footer />
 
           </Route>
 
@@ -60,22 +62,24 @@ function App() {
           <Route path='/identify'>
 
             <AdminIdentify />
+            <Footer />
 
           </Route>
 
           <Route path="/credits">
 
             <Credits />
+            <Footer />
 
           </Route>
 
           <Route path="/">
 
             <Game />
+            <Footer />
 
           </Route>
         </Switch>
-        <Footer />
       </>
    </Router>
   );

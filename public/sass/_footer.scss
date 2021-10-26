@@ -12,4 +12,15 @@
     padding-left: 3vw;
 
     box-sizing: border-box;
+
+    position: absolute;
+    bottom: 0px;
   }
+
+@media (max-width: 991.98px) {
+  
+  .made-with-love {
+
+    position: initial;
+  }
+}
