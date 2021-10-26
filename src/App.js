@@ -19,12 +19,19 @@ import PasswordRecovery from "./components/Admin/AdminIdentify/Identify/Password
 import AccountInfo from "./components/Admin/Account/AccountInfo/AccountInfo";
 import Footer from "./components/Footer/Footer";
 import Credits from "./components/Footer/Credits/Credits";
+import PokemonScripts from "./components/Pokemon Scripts/PokemonScripts";
 
 function App() {
   return (
     <Router>
       <>
         <Switch>
+
+          <Route path='/pokemon'>
+
+            <PokemonScripts />
+
+          </Route>
 
           <Route path="/my-account">
           
