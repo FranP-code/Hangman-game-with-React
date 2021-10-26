@@ -190,7 +190,7 @@ header .account-preview .full-name.show {
 }
 .word .counter {
   font-size: 40pt;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   margin-left: 3vw;
 }
 
@@ -239,7 +239,7 @@ header .account-preview .full-name.show {
 .categories-container .categories button, .categories-container .categories select {
   height: 10vh;
   width: 50vw;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 22pt;
   border: none;
   border-radius: 10px;
@@ -390,7 +390,7 @@ header .account-preview .full-name.show {
   }
 }
 .defeat, .victory {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   position: absolute;
   left: 0;
   top: 0;
@@ -473,7 +473,7 @@ header .account-preview .full-name.show {
 }
 
 .form-container {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 .form-container .message {
   padding: 4vh 5vw;
@@ -709,7 +709,7 @@ header .account-preview .full-name.show {
 .control-panel .action-form form textarea {
   resize: none;
   outline: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 .control-panel .action-form form input[type=submit] {
   font-size: 12pt;
@@ -725,7 +725,7 @@ header .account-preview .full-name.show {
 }
 .control-panel .action-form form input[type=text] {
   height: 5vh;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 1.2vw;
   outline: none;
   border: none;
@@ -1010,6 +1010,24 @@ header.demo h1 span.demoSpan:hover, header.demo h1 span.demoSpan:focus, header.d
     width: 20vw;
     height: 7vw;
   }
+}
+.made-with-love a {
+  color: #ff8787;
+}
+
+.made-with-love {
+  color: #b9b9b9;
+  margin-top: auto;
+  width: 100%;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  padding-left: 3vw;
+  box-sizing: border-box;
+}
+
+.credits {
+  font-family: "Helveltica", sans-serif;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=index.css.map */

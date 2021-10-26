@@ -17,6 +17,8 @@ import AdminIdentify from "./components/Admin/AdminIdentify/AdminIdentify";
 import DemoControlPanel from "./components/Demo Admin/Control Panel/DemoControlPanel";
 import PasswordRecovery from "./components/Admin/AdminIdentify/Identify/PasswordRecovery/PasswordRecovery";
 import AccountInfo from "./components/Admin/Account/AccountInfo/AccountInfo";
+import Footer from "./components/Footer/Footer";
+import Credits from "./components/Footer/Credits/Credits";
 
 function App() {
   return (
@@ -54,13 +56,19 @@ function App() {
 
           </Route>
 
+          <Route path="/credits">
+
+            <Credits />
+
+          </Route>
+
           <Route path="/">
 
             <Game />
 
           </Route>
-
         </Switch>
+        <Footer />
       </>
    </Router>
   );
