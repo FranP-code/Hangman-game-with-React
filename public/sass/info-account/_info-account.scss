@@ -39,6 +39,8 @@
             width: 20vw;
             height: 10vh;
 
+            font-size: 15pt;
+
             background: rgb(185, 185, 185);
 
             transition: ease-in-out 0.4s;
@@ -47,6 +49,9 @@
 
             //border: 1px solid rgb(92, 92, 92);
             border-radius: 10px;
+
+            cursor: pointer;
+            
 
             &:hover {
                 background: rgb(255, 165, 165);
@@ -95,6 +100,69 @@
                 &:active {
 
                     border: 4px solid rgb(83, 83, 83);
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 991.98px) {
+
+    .info-account {
+        
+        .functions {
+
+            flex-direction: column;
+
+            .close-session {
+
+                width: 100%;
+
+                margin-bottom: 1vh;
+            }
+
+            .reffer-code-container {
+
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+
+    .info-account {
+
+        .person {
+            width: auto;
+            margin: 0px 10vw;
+            margin-top: 2vh;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            h2, h3 {
+                margin: 0;
+                margin-bottom: 1vh;
+            }
+        }
+
+        .functions {
+
+            .reffer-code-container {
+
+                flex-direction: column;
+
+                button {
+
+                    border-radius: 10px;
+
+                    width: 20vw;
+                    height: 7vw;
                 }
             }
         }

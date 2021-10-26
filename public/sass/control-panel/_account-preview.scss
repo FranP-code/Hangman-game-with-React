@@ -40,7 +40,7 @@
 
     .full-name {
         
-        height: 5vh;
+        //height: 5vh;
         width: 10vw;
 
         margin-top: 0.5vh;
@@ -55,7 +55,9 @@
         transition: 0.4s ease-in-out;
         text-align: center;
         
+        padding: 0px 0.5vw;
         padding-bottom: 1vh;
+        border-radius: 10px;
 
         &.show {
 

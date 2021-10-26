@@ -80,9 +80,33 @@ header {
 
     header {
 
+        padding: 3vh 0px;
+
+        height: auto;
+
+        h2 {
+
+            margin-bottom: 1vh;
+        }
+
         .redirect-button {
             width: 20vw;
             position: initial;
+        }
+        
+        .account-preview {
+
+            position: initial;
+            
+            .full-name {
+
+                height: 0;
+    
+                &.show {
+
+                    opacity: 0%;
+                }
+            }
         }
     }
 }
