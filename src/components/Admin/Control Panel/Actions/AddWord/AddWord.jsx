@@ -6,6 +6,7 @@ import capitalize from '../../Scripts/Capilazate'
 import Messages from '../../../../Messages/Messages'
 import AddWordToFirebase from './Firebase Querys/AddWordToFirebase'
 import SendMeEmail from '../../Email/SendMeEmail'
+import getCategoryForDatabase from './Firebase Querys/getCategoryForDatabase'
 
 
 const AddWord = () => {
@@ -74,6 +75,8 @@ const AddWord = () => {
 
             return
         }
+
+        const categoryForDatabase = await getCategoryForDatabase(categorySelection, languageSelection)
         
         if (!wordsToAdd || wordsToAdd === '') {
 
@@ -86,11 +89,14 @@ const AddWord = () => {
             return
         }
 
+
         let splitedWords = wordsToAdd.split(',')
 
         splitedWords = splitedWords.map(word => word.trim())
         splitedWords = splitedWords.map(word => word.toLowerCase())
         splitedWords = splitedWords.map(word => capitalize(word))
+
+        console.log(categoryForDatabase);
 
         const uploadWordsPromise = new Promise((resolve, reject) => {
             
@@ -98,7 +104,7 @@ const AddWord = () => {
                        
                        if (!canceledAddingWords) {
                            
-                           if (await AddWordToFirebase(languageSelection, categorySelection, word, setData) === 'error') {
+                           if (await AddWordToFirebase(languageSelection, await categoryForDatabase, word, setData) === 'error') {
                                
                                setCanceledAddingWords(true)
                            }
