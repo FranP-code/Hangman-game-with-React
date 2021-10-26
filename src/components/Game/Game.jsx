@@ -66,8 +66,7 @@ function Game() {
 
       let word = await BringTheWords(language, category, selectedWord)
           word = word.toLowerCase()
-      
-      console.log(word)
+  
       await setSelectedWord(word)
       await setDisplayApp(true)
     }
@@ -91,7 +90,6 @@ function Game() {
       bringWordFromFirebase()
     }
 
-    console.log(category)
   }, [categoryIsReady])
 
 
@@ -100,7 +98,6 @@ function Game() {
     const registerKeys = e => {
 
       if (displayApp) {
-        console.log(e)
 
         let currentKey
         

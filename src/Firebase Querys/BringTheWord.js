@@ -7,15 +7,10 @@ const BringTheWords = async (language = 'english', category = false, selectedWor
 
     if (!selectedWord) {
 
-        
-        console.log(category)
-        console.log(language)
-
         if (!category || category === 'false') {
 
             category = await GetRandomCategory(language)
-            console.log(category)
-            
+
         }
         
         try {
@@ -23,19 +18,14 @@ const BringTheWords = async (language = 'english', category = false, selectedWor
             const db = getFirestore(firestore)
             const data = collection(db, `hangman_words/${language}/${category}`)
             const result = await getDocs(data)
-            
-            
-            console.log(result)
 
             const words = await result.docs.map(doc => doc.id)
             
-            console.log(words)
             const word = await SelectRandomWord(await words)
 
             return await word
 
         } catch (error) {
-            console.log(error)
         }
     }
 }

@@ -48,8 +48,6 @@ const DeleteCategoryFirebase = async (category, setData) => {
             message: `There's been an error deleting the category ${category}`
         })
         
-        alert(error)
-        console.log(error)
     }
 }
 

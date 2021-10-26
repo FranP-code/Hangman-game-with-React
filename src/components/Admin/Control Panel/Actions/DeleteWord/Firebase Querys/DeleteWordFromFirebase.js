@@ -12,8 +12,6 @@ const DeleteWordFromFirebase = async (language, category, word) => {
 
         const categoryLocalizated = categoryFirebase.data()[language]
         
-        console.log(categoryLocalizated)
-
         await deleteDoc(doc(db, `hangman_words/${language}/${category}`, word))
 
         return await {
@@ -22,8 +20,7 @@ const DeleteWordFromFirebase = async (language, category, word) => {
         }
         
     } catch (error) {
-        console.log(error)
-
+        
         return {
             sucess: false,
             message: `There's been an error deleting the word ${word}`

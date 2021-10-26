@@ -21,8 +21,6 @@ const modifyWordInFirebase = async (language, category, word, newWord) => {
         
     } catch (error) {
         
-        console.log(error)
-
         return {
 
             sucess: false,

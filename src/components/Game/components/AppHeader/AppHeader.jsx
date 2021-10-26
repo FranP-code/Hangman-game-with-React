@@ -24,9 +24,6 @@ const AppHeader = ({language, category, displayCategories, setDisplayCategories,
         if (category) {
 
             if (category !== 'false') {
-
-                
-                console.log(category);
                 
                 let categoryText = category.split('')
                 categoryText[0] = categoryText[0].toUpperCase()

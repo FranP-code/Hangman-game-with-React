@@ -7,8 +7,6 @@ const bringDataFromFirebase = async (email) => {
         
         try {
 
-            console.log(email)
-        
             const db = getFirestore(firestore)
             const reference = doc(db, 'users', email)
             const documentSnap = await getDoc(reference)
@@ -16,7 +14,6 @@ const bringDataFromFirebase = async (email) => {
             return await documentSnap.data()
 
     } catch (error) {
-        console.log(error)
     }
 
 }

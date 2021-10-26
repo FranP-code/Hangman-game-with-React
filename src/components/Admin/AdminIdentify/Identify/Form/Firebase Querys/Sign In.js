@@ -10,10 +10,8 @@ const SignIn = async (data, setMessage) => {
     try {
 
         const response = await signInWithEmailAndPassword(auth, email, password)
-        console.log(response)
 
     } catch (error) {
-        console.log(error)
         setMessage('User or Password wrong')
     }
 }

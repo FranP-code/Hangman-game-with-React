@@ -4,7 +4,6 @@ export const RecoveryCurrentCategory = (setCategory) => {
 
       const category = localStorage.getItem('category')
 
-      console.log(category)
       setCategory(category)
       localStorage.removeItem('category')
 

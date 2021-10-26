@@ -4,7 +4,6 @@ const checkDefeat = (setEndOfGame, hangmanFrame, setCorrectLetters, selectedWord
         setCorrectLetters([...selectedWord])
         setEndOfGame('Defeat')
 
-        console.log(navigator.keyboard)
         if (!mobileUser && navigator.keyboard) {
 
             navigator.keyboard.lock();

@@ -5,10 +5,6 @@ import capitalize from "../../../../../General Scripts/Capilazate";
 
 
 const Bring_All_Categories = async (setCategories, setStrech, language) => {
-
-    console.log(language)
-
-    
         
         try {
 
@@ -30,13 +26,11 @@ const Bring_All_Categories = async (setCategories, setStrech, language) => {
 
                 categories = categories.map(doc => [capitalize(doc[0], true), doc[1]])
     
-            console.log(categories)
             setCategories(await categories)
     
             AdjustHeightCategories(await categories, setStrech)
             
         } catch (error) {
-            console.log(error)
         }
     
 }

@@ -50,8 +50,6 @@ const DeleteWordDemo = () => {
 
         setLoading(true)
         setCategorySelect(category)
-
-        console.log(category);
         
         const words = await ['Example 1', 'Example 2', 'Example 3']
         

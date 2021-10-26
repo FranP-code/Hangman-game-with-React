@@ -13,7 +13,6 @@ const BringTheWordsFromFirebase = async (language, category) => {
 
         return await words
     } catch (error) {
-        console.log(error)
     }
 }
 

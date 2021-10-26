@@ -76,7 +76,6 @@ const EditWord = () => {
         setLoading(true)
 
         const result = await BringWordsFromFirebase(languageSelection, categorySelected)
-        console.log(result)
         setWordsList(result)
 
         setLoading(false)

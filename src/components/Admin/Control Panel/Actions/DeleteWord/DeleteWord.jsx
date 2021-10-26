@@ -52,8 +52,6 @@ const DeleteWord = () => {
 
         setLoading(true)
         setCategorySelect(category)
-
-        console.log(category);
         
         const words = await BringTheWordsFromFirebase(languageSelect, category)
         

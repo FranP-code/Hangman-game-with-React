@@ -4,9 +4,6 @@ import { firestore } from "../../../../../../Firebase/Firebase_Config"
 
 const BringWordsFromFirebase = async (language, category) => {
 
-    console.log(language)
-    console.log(category)
-    
     try {
 
         const db = getFirestore(firestore)
@@ -19,7 +16,6 @@ const BringWordsFromFirebase = async (language, category) => {
         
     } catch (error) {
         
-        console.log(error)
     }
 }
 

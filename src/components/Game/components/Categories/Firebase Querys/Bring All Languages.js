@@ -17,7 +17,6 @@ const Bring_All_Languages = async (setLanguage) => {
         setLanguage(languages)
         
     } catch (error) {
-        console.log(error)
     }
 
 }

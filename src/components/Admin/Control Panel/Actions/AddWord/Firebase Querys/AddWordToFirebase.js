@@ -20,7 +20,6 @@ const AddWordToFirebase = async (language, category, word, setData) => {
 
     } catch (error) {
 
-        console.log(error)
         setData({
             sucess: false,
             message: `There's been an error adding the words`

@@ -13,14 +13,12 @@ const ValidateRegister = async (data, setMessage) => {
 
     if (password.length < 6) {
 
-        console.log('PASSWORD TOO SHORT')
         setMessage('Password too short')
         return false
     }
 
     if (password !== confirmPassword) {
         
-        console.log('LAS CONTRASEÑAS NO COINCIDEN')
         setMessage('The Passwords not match')
         return false
     }

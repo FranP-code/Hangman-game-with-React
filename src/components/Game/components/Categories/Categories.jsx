@@ -48,7 +48,6 @@ const Categories = ({AppLanguage, displayCategories, category, setCategory, curr
         Bring_All_Categories(setCategories, setStrech, AppLanguage, category)
         Bring_All_Languages(setLanguages)
         
-        console.log(categories)
     }, [])
 
     return (
@@ -61,8 +60,6 @@ const Categories = ({AppLanguage, displayCategories, category, setCategory, curr
                     languages.length > 0 ?
                     
                         languages.map((language) => {
-
-                            console.log(AppLanguage);
 
                             if (language === capitalize(AppLanguage)) {
                                 

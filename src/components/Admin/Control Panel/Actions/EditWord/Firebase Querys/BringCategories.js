@@ -14,8 +14,7 @@ const BringCategories = async () => {
         return await categories
             
     } catch (error) {
-        console.log(error)
-        alert(error)
+
     }
 }
 

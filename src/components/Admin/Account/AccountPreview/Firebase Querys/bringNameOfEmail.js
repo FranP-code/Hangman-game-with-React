@@ -7,18 +7,15 @@ const bringNameOfEmail = async (email) => {
     try {
 
         const id = email
-        console.log(email)
 
         const db = getFirestore(firestore)
         const docRef = doc(db, "users", id);
         const docSnap = await getDoc(docRef);
 
-
-        console.log(docSnap.data())
         return await docSnap.data()
         
     } catch (error) {
-        console.log(error)
+
     }
 }
 

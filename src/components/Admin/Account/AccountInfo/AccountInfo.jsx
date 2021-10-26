@@ -40,9 +40,7 @@ const AccountInfo = (props) => {
     const bringData = async (email) => {
 
         const result = await bringDataFromFirebase(email)
-        
-        await console.log(result);
-        
+
         await applyResult(await result)
 
         setLoading(false)

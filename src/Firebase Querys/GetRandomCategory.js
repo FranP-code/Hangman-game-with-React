@@ -12,10 +12,7 @@ const GetRandomCategory = async (language) => {
             const data = collection(db, `categories`)
             const result = await getDocs(data)
 
-            console.log(result)
             result.docs.map(doc => categoriesList.push(doc.get(language)))
-
-            console.log(categoriesList)
 
             const randomNumber = Math.trunc(
 
@@ -25,7 +22,6 @@ const GetRandomCategory = async (language) => {
             return categoriesList[randomNumber].toLowerCase()
 
         } catch (error) {
-            console.log(error)
         }
 }
 

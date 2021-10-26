@@ -15,7 +15,6 @@ const ResetPasswordFirebase = async (email) => {
 
     }  catch(error) {
 
-        console.log(error)
         return {
             sucess: false,
             message: `There's been an error sending the email...`

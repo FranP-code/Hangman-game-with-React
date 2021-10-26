@@ -2,9 +2,6 @@ const DetermineUserLanguage = (setLanguage) => {
 
     if (!localStorage.getItem('languageDetermined')) {
 
-        
-        console.log(navigator.language)
-        
         if (navigator.language === 'es') {
             setLanguage('spanish')
         }

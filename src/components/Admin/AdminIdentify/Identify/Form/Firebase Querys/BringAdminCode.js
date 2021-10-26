@@ -13,7 +13,6 @@ const BringAdminCode = async () => {
 
     } catch (error) {
 
-        console.log(error)
     }
 }
 

@@ -37,7 +37,6 @@ const AddCategoryToFirebase = async (englishCategory, spanishCategory, fristWord
         }
 
     } catch (error) {
-        console.log(error)
 
         return {
             sucess: false,
