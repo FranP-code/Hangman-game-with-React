@@ -66,7 +66,7 @@ function App() {
 
           </Route>
 
-          <Route path="/credits">
+          <Route path="/credits-page">
 
             <Credits />
             <Footer />
