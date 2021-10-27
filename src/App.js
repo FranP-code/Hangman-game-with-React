@@ -35,8 +35,8 @@ function App() {
 
           <Route path="/credits-page">
 
-          <Credits />
-          <Footer />
+            <Credits />
+            <Footer />
 
           </Route>
 
@@ -54,7 +54,7 @@ function App() {
 
           </Route>
 
-          <Route path='/demo-admin-place'>
+          <Route path='/admin-place/demo'>
 
             <DemoControlPanel />
 

@@ -141,7 +141,7 @@ const Form = () => {
                 : null
             }
             <AditionalText text={`Don't remember your password?`} link={'/password-recovery'}/>
-            <AditionalText text={'Admin place demo look'} link={'/demo-admin-place'}/>
+            <AditionalText text={'Admin place demo look'} link={'/admin-place/demo'}/>
 
         </div>
     )

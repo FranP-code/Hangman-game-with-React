@@ -15,7 +15,11 @@ const AdminHeader = (props) => {
                 Back to the Game
             </button>
 
-            <AccountPreview />
+            {
+                !props.demo ?
+                    <AccountPreview />
+                : null
+            }
         </header>
     )
 }
