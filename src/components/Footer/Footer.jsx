@@ -6,7 +6,7 @@ const Footer = (props) => {
             {/* <p>
                 Made with 💓 by <a href="http://www.franp.xyz">Francisco Pessano</a>.
             </p> */}
-            <a href="/credits">Credits</a>
+            <a href="/credits-page">Credits</a>
         </footer>
     )
 }

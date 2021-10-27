@@ -33,6 +33,13 @@ function App() {
 
           </Route> */}
 
+          <Route path="/credits-page">
+
+          <Credits />
+          <Footer />
+
+          </Route>
+
           <Route path="/my-account">
           
             <AccountInfo />
@@ -62,13 +69,6 @@ function App() {
           <Route path='/identify'>
 
             <AdminIdentify />
-            <Footer />
-
-          </Route>
-
-          <Route path="/credits-page">
-
-            <Credits />
             <Footer />
 
           </Route>
