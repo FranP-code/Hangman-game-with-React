@@ -36,7 +36,7 @@ function App() {
           <Route path="/credits-page">
 
             <Credits />
-            <Footer />
+            {/* <Footer /> */}
 
           </Route>
 
