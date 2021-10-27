@@ -1024,7 +1024,7 @@ header.demo h1 span.demoSpan:hover, header.demo h1 span.demoSpan:focus, header.d
     height: 7vw;
   }
 }
-.made-with-love a {
+.made-with-love .link {
   color: #ff8787;
 }
 

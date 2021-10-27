@@ -1,4 +1,6 @@
 import React from 'react'
+import { withRouter, } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const Footer = (props) => {
     return (
@@ -6,9 +8,10 @@ const Footer = (props) => {
             {/* <p>
                 Made with 💓 by <a href="http://www.franp.xyz">Francisco Pessano</a>.
             </p> */}
-            <a href="/credits-page">Credits</a>
+
+            <Link className="link" to='/credits-page'>Credits</Link>
         </footer>
     )
 }
 
-export default Footer
+export default withRouter(Footer)
