@@ -96,8 +96,6 @@ const AddWord = () => {
         splitedWords = splitedWords.map(word => word.toLowerCase())
         splitedWords = splitedWords.map(word => capitalize(word))
 
-        console.log(categoryForDatabase);
-
         const uploadWordsPromise = new Promise((resolve, reject) => {
             
                 splitedWords.forEach(async (word, index) => {

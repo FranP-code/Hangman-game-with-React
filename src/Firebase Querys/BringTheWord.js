@@ -1,16 +1,15 @@
 import {firestore} from '../Firebase/Firebase_Config'
-import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, doc, getDocs, getDoc } from 'firebase/firestore';
 import GetRandomCategory from './GetRandomCategory';
 import SelectRandomWord from './SelectRandomWord';
 
-const BringTheWords = async (language = 'english', category = false, selectedWord) => {
+const BringTheWords = async (language, category, selectedWord) => {
 
     if (!selectedWord) {
 
         if (!category || category === 'false') {
 
             category = await GetRandomCategory(language)
-
         }
         
         try {
@@ -26,6 +25,7 @@ const BringTheWords = async (language = 'english', category = false, selectedWor
             return await word
 
         } catch (error) {
+            console.log(error)
         }
     }
 }

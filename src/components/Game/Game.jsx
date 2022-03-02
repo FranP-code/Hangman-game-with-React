@@ -65,10 +65,10 @@ function Game() {
       setSelectedWord('a')
 
       let word = await BringTheWords(language, category, selectedWord)
-          word = word.toLowerCase()
+        word = word.toLowerCase()
   
-      await setSelectedWord(word)
-      await setDisplayApp(true)
+      setSelectedWord(word)
+      setDisplayApp(true)
     }
   }
   
@@ -172,7 +172,7 @@ function Game() {
         AlmacenateLanguage(language)
 
         window.location.reload(false)
-        }, 3000)
+    }, 3000)
   }
 
   return (

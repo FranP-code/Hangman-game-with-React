@@ -12,7 +12,6 @@ const getCategoryForDatabase = async (categorySelection, LanguageSelection) => {
         const categoryLocalizated = categoryFirebase.data()[LanguageSelection]
 
         return await categoryLocalizated
-        console.log(categoryLocalizated)
         
     } catch (error) {
         

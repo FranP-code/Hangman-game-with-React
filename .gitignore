@@ -22,9 +22,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/src/Firebase/Firebase_Config.js
-/public/Hover.css/css
+# /src/Firebase/Firebase_Config.js
+# /public/Hover.css/css
 
 /package-lock.json
 /package-lock.json.save
 /package-lock.json.save.1
+
+/.env

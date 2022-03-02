@@ -10,7 +10,6 @@ const PokemonScripts = () => {
             const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
             const pokemons = await response.json()
     
-            console.log(pokemons)
 
                 const uploadWordsPromise = new Promise((resolve, reject) => {
             
@@ -23,14 +22,6 @@ const PokemonScripts = () => {
         })
             
             await uploadWordsPromise.then(() => {})
-    
-            // await pokemons.results.forEach(async (pokemon) => {
-            //     console.log(pokemon.name)
-    
-            //     await AddPokemonToFirebaseQuery('english', pokemon)
-            // });
-    
-            console.log(pokemons.results.length)
     
         } catch (error) {
             

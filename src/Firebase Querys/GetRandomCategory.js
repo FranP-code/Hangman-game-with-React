@@ -22,6 +22,7 @@ const GetRandomCategory = async (language) => {
             return categoriesList[randomNumber].toLowerCase()
 
         } catch (error) {
+            console.log(error)
         }
 }
 
